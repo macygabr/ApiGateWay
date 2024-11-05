@@ -3,7 +3,7 @@ package com.example.demo.controller;
 
 import com.example.demo.models.SignInRequest;
 import com.example.demo.models.SignUpRequest;
-import com.example.demo.service.authentication.AuthenticationService;
+import com.example.demo.service.authentication.AuthenticationServiceProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-    private final AuthenticationService authenticationService;
+    private final AuthenticationServiceProducer authenticationService;
 
     @Autowired
-    public AuthController(AuthenticationService authenticationService) {
+    public AuthController(AuthenticationServiceProducer authenticationService) {
         this.authenticationService = authenticationService;
     }
 
@@ -24,8 +24,9 @@ public class AuthController {
     public ResponseEntity<?> signIn(@RequestBody SignInRequest request) {
         try {
             System.out.println("signIn: " + request);
-            String res = authenticationService.signIn(request);
-            return ResponseEntity.ok(res);
+            String response = authenticationService.signIn(request);
+            System.out.println("response: " + response);
+            return ResponseEntity.ok(response);
         } catch (JsonProcessingException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error converting to JSON");
         }

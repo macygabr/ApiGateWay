@@ -13,12 +13,12 @@ import java.util.concurrent.*;
 
 @Getter
 @Service
-public class AuthenticationService {
+public class AuthenticationServiceProducer {
     private final KafkaProducerService kafkaProducer;
     private final ConcurrentHashMap<String, CompletableFuture<String>> pendingRequests = new ConcurrentHashMap<>();
 
     @Autowired
-    public AuthenticationService(KafkaProducerService kafkaProducer) {
+    public AuthenticationServiceProducer(KafkaProducerService kafkaProducer) {
         this.kafkaProducer = kafkaProducer;
     }
 
@@ -29,7 +29,7 @@ public class AuthenticationService {
         pendingRequests.put(request.getId(), futureResponse);
 
         String json = mapper.writeValueAsString(request);
-        kafkaProducer.sendMessage("auth" ,json);
+        kafkaProducer.sendMessage("signin" ,json);
 
         try {
             return futureResponse.get(10, TimeUnit.SECONDS);
@@ -43,10 +43,12 @@ public class AuthenticationService {
     public void signUp(SignUpRequest request) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(request);
-        kafkaProducer.sendMessage("auth", json);
+        kafkaProducer.sendMessage("signup", json);
     }
 
     public void logout(){
-        kafkaProducer.sendMessage("auth", "Logout");
+        kafkaProducer.sendMessage("logout", "Logout");
     }
+
+
 }
