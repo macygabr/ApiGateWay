@@ -13,9 +13,9 @@ public class AuthenticationServiceConsumer {
     public AuthenticationServiceConsumer(AuthenticationServiceProducer authService) {
         this.authService = authService;
     }
-    @KafkaListener(topics = "auth/response", groupId = "auth/service")
+    @KafkaListener(topics = "auth_response", groupId = "auth_service")
     public void consumeMessage(String message) throws JsonProcessingException {
-        System.out.println("\033[31mMessage: <<" + message + ">> topics = auth \033[0m");
+        System.out.println("\033[31mMessage: " + message +"\033[0m");
         ObjectMapper mapper = new ObjectMapper();
         AuthenticationServerResponse response = mapper.readValue(message, AuthenticationServerResponse.class);
         CompletableFuture<String> futureResponse = authService.getPendingRequests().get(response.getId());
