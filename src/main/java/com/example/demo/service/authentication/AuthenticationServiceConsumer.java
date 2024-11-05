@@ -4,9 +4,11 @@ import com.example.demo.models.AuthenticationServerResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CompletableFuture;
 
+@Service
 public class AuthenticationServiceConsumer {
     private final AuthenticationServiceProducer authService;
 
