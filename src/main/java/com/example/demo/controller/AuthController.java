@@ -24,8 +24,8 @@ public class AuthController {
     public ResponseEntity<?> signIn(@RequestBody SignInRequest request) {
         try {
             System.out.println("signIn: " + request);
-            authenticationService.signIn(request);
-            return ResponseEntity.ok("send...");
+            String res = authenticationService.signIn(request);
+            return ResponseEntity.ok(res);
         } catch (JsonProcessingException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error converting to JSON");
         }
