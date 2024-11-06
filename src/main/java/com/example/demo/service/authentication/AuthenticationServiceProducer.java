@@ -7,7 +7,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.concurrent.*;
 
 
@@ -23,13 +22,9 @@ public class AuthenticationServiceProducer {
     }
 
     public String signIn(SignInRequest request) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-
         CompletableFuture<String> futureResponse = new CompletableFuture<>();
         pendingRequests.put(request.getId(), futureResponse);
-
-        String json = mapper.writeValueAsString(request);
-        kafkaProducer.sendMessage("signin" ,json);
+        kafkaProducer.sendMessage("signin" ,request.toString());
 
         try {
             return futureResponse.get(10, TimeUnit.SECONDS);
@@ -41,13 +36,9 @@ public class AuthenticationServiceProducer {
     }
 
     public String signUp(SignUpRequest request) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-
         CompletableFuture<String> futureResponse = new CompletableFuture<>();
         pendingRequests.put(request.getId(), futureResponse);
-
-        String json = mapper.writeValueAsString(request);
-        kafkaProducer.sendMessage("signup", json);
+        kafkaProducer.sendMessage("signup", request.toString());
 
         try {
             return futureResponse.get(10, TimeUnit.SECONDS);

@@ -17,12 +17,12 @@ public class AuthenticationServiceConsumer {
     }
     @KafkaListener(topics = "auth_response", groupId = "auth_service")
     public void consumeMessage(String message) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        AuthenticationServerResponse response = mapper.readValue(message, AuthenticationServerResponse.class);
+
+        AuthenticationServerResponse response = new AuthenticationServerResponse(message);
         CompletableFuture<String> futureResponse = authService.getPendingRequests().get(response.getId());
 
         if (futureResponse != null) {
-            futureResponse.complete(response.getToken());
+            futureResponse.complete(response.toString());
         } else {
             System.err.println("No matching request found for response: " + response);
         }
