@@ -20,12 +20,8 @@ public class AuthenticationServiceConsumer {
         AuthenticationServerResponse response = new AuthenticationServerResponse(message);
         CompletableFuture<String> futureResponse = authService.getPendingRequests().get(response.getId());
 
-        if (futureResponse != null) {
-            if(response.getId() != null && response.getStatus()) {
-                futureResponse.complete(response.toString());
-            } else {
-                futureResponse.complete(null);
-            }
+        if (futureResponse != null && response.getId() != null) {
+            futureResponse.complete(response.toString());
         } else {
             System.err.println("No matching request found for response: " + response);
         }

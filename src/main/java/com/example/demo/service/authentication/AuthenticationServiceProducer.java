@@ -1,5 +1,6 @@
 package com.example.demo.service.authentication;
 
+import com.example.demo.models.AuthenticationServerResponse;
 import com.example.demo.models.SignInRequest;
 import com.example.demo.models.SignUpRequest;
 import com.example.demo.service.kafka.KafkaProducerService;
@@ -27,7 +28,10 @@ public class AuthenticationServiceProducer {
         kafkaProducer.sendMessage("signin" ,request.toString());
 
         try {
-            return futureResponse.get(10, TimeUnit.SECONDS);
+            String res = futureResponse.get(10, TimeUnit.SECONDS);
+            AuthenticationServerResponse response = new AuthenticationServerResponse(res);
+            if(!response.getStatus()) throw new RuntimeException(response.getStatus().toString());
+            return res;
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth service");
         } finally {
