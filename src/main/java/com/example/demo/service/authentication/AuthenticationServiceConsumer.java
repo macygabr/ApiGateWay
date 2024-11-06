@@ -2,7 +2,6 @@ package com.example.demo.service.authentication;
 
 import com.example.demo.models.AuthenticationServerResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +20,7 @@ public class AuthenticationServiceConsumer {
         AuthenticationServerResponse response = new AuthenticationServerResponse(message);
         CompletableFuture<String> futureResponse = authService.getPendingRequests().get(response.getId());
 
-        if (futureResponse != null) {
+        if (futureResponse != null && response.getId() != null) {
             futureResponse.complete(response.toString());
         } else {
             System.err.println("No matching request found for response: " + response);
