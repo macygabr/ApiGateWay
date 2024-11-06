@@ -21,31 +21,24 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<?> signIn(@RequestBody SignInRequest request) {
-        try {
-            System.out.println("signIn: " + request);
-            String response = authenticationService.signIn(request);
-            System.out.println("response: " + response);
-            return ResponseEntity.ok(response);
-        } catch (JsonProcessingException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error converting to JSON");
-        }
+    public ResponseEntity<?> signIn(@RequestBody SignInRequest request) throws JsonProcessingException {
+        System.err.println("signIn request: " + request);
+        String response = authenticationService.signIn(request);
+        System.err.println("signIn response: " + response);
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signUp(@RequestBody SignUpRequest request) {
-        try {
-            System.out.println("signUp: " + request);
-            authenticationService.signUp(request);
-            return ResponseEntity.ok("send...");
-        } catch (JsonProcessingException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error converting to JSON");
-        }
+    public ResponseEntity<?> signUp(@RequestBody SignUpRequest request) throws JsonProcessingException {
+        System.err.println("signUp request: " + request);
+        String response = authenticationService.signUp(request);
+        System.err.println("signUp response: " + response);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/logout")
     public ResponseEntity<?> logout() {
-        System.out.println("logout");
+        System.err.println("logout");
         authenticationService.logout();
         return ResponseEntity.ok("send...");
     }

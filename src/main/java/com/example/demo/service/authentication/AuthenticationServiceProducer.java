@@ -40,15 +40,25 @@ public class AuthenticationServiceProducer {
         }
     }
 
-    public void signUp(SignUpRequest request) throws JsonProcessingException {
+    public String signUp(SignUpRequest request) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
+
+        CompletableFuture<String> futureResponse = new CompletableFuture<>();
+        pendingRequests.put(request.getId(), futureResponse);
+
         String json = mapper.writeValueAsString(request);
         kafkaProducer.sendMessage("signup", json);
+
+        try {
+            return futureResponse.get(10, TimeUnit.SECONDS);
+        } catch (TimeoutException | InterruptedException | ExecutionException e) {
+            throw new RuntimeException("Timeout waiting for response from auth service");
+        } finally {
+            pendingRequests.remove(request.getId());
+        }
     }
 
     public void logout(){
-        kafkaProducer.sendMessage("logout", "Logout");
+        kafkaProducer.sendMessage("logout", "logout");
     }
-
-
 }

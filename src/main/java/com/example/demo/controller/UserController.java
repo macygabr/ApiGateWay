@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.users.UserService;
+import com.example.demo.service.users.UserServiceProducer;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,17 +11,22 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/user/")
 public class UserController {
 
-    private final UserService userService;
+    private final UserServiceProducer userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserServiceProducer userService) {
         this.userService = userService;
     }
 
     @GetMapping("/getinfo")
     public ResponseEntity<?> getInfo() {
-        System.out.println("getinfo");
-        userService.getInfo();
-        return ResponseEntity.ok("send...");
+        try {
+            System.err.println("getInfo request ");
+            String response = userService.getInfo();
+            System.err.println("getInfo response: " + response);
+            return ResponseEntity.ok(response);
+        } catch (JsonProcessingException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error converting to JSON");
+        }
     }
 }
