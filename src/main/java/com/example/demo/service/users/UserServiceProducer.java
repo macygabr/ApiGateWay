@@ -3,6 +3,7 @@ package com.example.demo.service.users;
 import com.example.demo.service.kafka.KafkaProducerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Data;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,20 +26,35 @@ public class UserServiceProducer {
 
 
     public String getInfo() throws JsonProcessingException {
-
-        String requestId = UUID.randomUUID().toString();
-
+        UserRequest userRequest = new UserRequest();
         CompletableFuture<String> futureResponse = new CompletableFuture<>();
-        pendingRequests.put(requestId, futureResponse);
 
-        kafkaProducer.sendMessage("user_info", "get");
+        pendingRequests.put(userRequest.getId(), futureResponse);
+        kafkaProducer.sendMessage("user_info", userRequest.toString());
 
         try {
             return futureResponse.get(10, TimeUnit.SECONDS);
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth user");
         } finally {
-            pendingRequests.remove(requestId);
+            pendingRequests.remove(userRequest.getId());
+        }
+    }
+
+    @Data
+    private static class UserRequest {
+
+        private String id = UUID.randomUUID().toString();
+
+        @Override
+        public String toString() {
+            String json;
+            try {
+                json = (new ObjectMapper()).writeValueAsString(this);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+            return json;
         }
     }
 }
