@@ -24,10 +24,10 @@ public class AuthenticationServerResponse {
     private Long user_id = 0L;
 
     @JsonProperty("token")
-    private String token = UUID.randomUUID().toString();
+    private String token = "0";
 
     @JsonProperty("token_name")
-    private String tokenName = "custom-auth-token";
+    private String tokenName = "";
 
     public AuthenticationServerResponse(String message) {
         try {
