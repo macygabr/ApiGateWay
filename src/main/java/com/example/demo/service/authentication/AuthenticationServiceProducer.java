@@ -1,11 +1,15 @@
 package com.example.demo.service.authentication;
 
+import com.example.demo.models.ServerResponse;
 import com.example.demo.models.SignInRequest;
 import com.example.demo.models.SignUpRequest;
 import com.example.demo.service.kafka.KafkaProducerService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 import java.util.concurrent.*;
 
 
@@ -20,19 +24,20 @@ public class AuthenticationServiceProducer {
         this.kafkaProducer = kafkaProducer;
     }
 
-    public String signIn(SignInRequest request) {
+    public ResponseEntity<String> signIn(SignInRequest request) {
         CompletableFuture<String> futureResponse = new CompletableFuture<>();
-
-        pendingRequests.put(request.getId(), futureResponse);
+        String id = UUID.randomUUID().toString();
+        pendingRequests.put(id, futureResponse);
         try {
-//            kafkaProducer.sendMessage("signin" ,request.toString());
+            kafkaProducer.sendMessage("signin" ,id ,request.toString());
             String res = futureResponse.get(10, TimeUnit.SECONDS);
             System.err.println("signin Response: " + res);
-            return res;
+            ServerResponse response = new ServerResponse(res);
+            return ResponseEntity.status(response.getStatus()).body(response.toString());
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth service");
         } finally {
-            pendingRequests.remove(request.getId());
+            pendingRequests.remove(id);
         }
     }
 

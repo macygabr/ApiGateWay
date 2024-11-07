@@ -15,8 +15,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignInRequest {
-    @JsonProperty("id")
-    private String id = UUID.randomUUID().toString();
 
     @JsonProperty("email")
     private String email;
@@ -27,7 +25,6 @@ public class SignInRequest {
     public SignInRequest(String massage){
         try {
             SignInRequest signInRequest= (new ObjectMapper()).readValue(massage, SignInRequest.class);
-            this.id = signInRequest.getPassword();
             this.email = signInRequest.getEmail();
             this.password = signInRequest.getPassword();
         } catch (Exception e){

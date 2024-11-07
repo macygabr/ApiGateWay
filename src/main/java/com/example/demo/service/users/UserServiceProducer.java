@@ -1,6 +1,6 @@
 package com.example.demo.service.users;
 
-import com.example.demo.models.UserResponse;
+import com.example.demo.models.ServerResponse;
 import com.example.demo.service.kafka.KafkaProducerService;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -40,8 +40,8 @@ public class UserServiceProducer {
 
             String responseMessage = futureResponse.get(10, TimeUnit.SECONDS);
             System.err.println("user_info Response: " + responseMessage);
-            UserResponse userResponse = new UserResponse(responseMessage);
-            return ResponseEntity.status(userResponse.getStatus()).body(userResponse.getMessage());
+            ServerResponse response = new ServerResponse(responseMessage);
+            return ResponseEntity.status(response.getStatus()).body(response.getMessage());
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth user", e);
         } finally {

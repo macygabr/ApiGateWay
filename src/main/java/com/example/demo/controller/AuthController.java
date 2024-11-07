@@ -23,9 +23,9 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<?> signIn(@RequestBody SignInRequest request) throws JsonProcessingException {
         System.err.println("signIn request: " + request);
-        String response = authenticationService.signIn(request);
+        ResponseEntity<String> response = authenticationService.signIn(request);
         System.err.println("signIn response: " + response);
-        return ResponseEntity.ok(response);
+        return response;
     }
 
     @PostMapping("/signup")

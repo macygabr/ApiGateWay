@@ -19,7 +19,7 @@ public class UserController {
     public ResponseEntity<?> getInfo(@RequestHeader("Authorization") String authorizationHeader) {
         try {
             System.err.println("getInfo request");
-            ResponseEntity response = userService.getInfo(authorizationHeader);
+            ResponseEntity<String> response = userService.getInfo(authorizationHeader);
             System.err.println("getInfo response: " + response);
             return response;
         } catch (JsonProcessingException e) {
