@@ -20,13 +20,11 @@ public class UserServiceConsumer {
     }
     @KafkaListener(topics = "user_response", groupId = "user_service")
     public void consumeMessage(String message) throws JsonProcessingException {
-
-        UserResponse response = (new ObjectMapper()).readValue(message, UserResponse.class);
+        UserResponse response = new UserResponse(message);
         CompletableFuture<String> futureResponse = userService.getPendingRequests().get(response.getId());
 
-        String json = (new ObjectMapper()).writeValueAsString(response);
         if (futureResponse != null) {
-            futureResponse.complete(json);
+            futureResponse.complete(response.toString());
         } else {
             System.err.println("No matching request found for response: " + response);
         }
