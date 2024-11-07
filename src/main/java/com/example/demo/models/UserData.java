@@ -2,19 +2,15 @@ package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 
-import java.util.UUID;
-
-
 @Data
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ServerResponse {
+public class UserData {
     @JsonProperty("status")
     private HttpStatus status;
     @JsonProperty("message")
@@ -25,25 +21,23 @@ public class ServerResponse {
     @JsonProperty("token_name")
     private String tokenName;
 
-    public ServerResponse(String message) {
+    @JsonProperty("firstname")
+    private String firstname = "";
+    @JsonProperty("lastname")
+    private String lastname = "";
+
+    public UserData(String message) {
         try {
             if (message == null) throw new RuntimeException("Message is null");
-            ServerResponse response = new ObjectMapper().readValue(message, ServerResponse.class);
+            UserData response = new ObjectMapper().readValue(message, UserData.class);
             this.status = response.getStatus();
             this.message = response.getMessage();
             this.token = response.getToken();
             this.tokenName = response.getTokenName();
+            this.firstname = response.getFirstname();
+            this.lastname = response.getLastname();
         } catch (Exception e) {
             System.err.println("Failed to parse message: " + e.getMessage());
-        }
-    }
-
-    @Override
-    public String toString() {
-        try {
-            return new ObjectMapper().writeValueAsString(this);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException("Failed to convert to JSON string", e);
         }
     }
 }

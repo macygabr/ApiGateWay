@@ -3,6 +3,7 @@ package com.example.demo.service.authentication;
 import com.example.demo.models.ServerResponse;
 import com.example.demo.models.SignInRequest;
 import com.example.demo.models.SignUpRequest;
+import com.example.demo.models.UserData;
 import com.example.demo.service.kafka.KafkaProducerService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class AuthenticationServiceProducer {
             kafkaProducer.sendMessage("signin" ,id ,request.toString());
             String res = futureResponse.get(10, TimeUnit.SECONDS);
             System.err.println("signin Response: " + res);
-            ServerResponse response = new ServerResponse(res);
+            UserData response = new UserData(res);
             return ResponseEntity.status(response.getStatus()).body(response.toString());
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth service");
