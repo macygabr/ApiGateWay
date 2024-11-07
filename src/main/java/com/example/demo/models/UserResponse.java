@@ -7,20 +7,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpStatus;
 
 
 @Data
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserResponse {
-    @JsonProperty("id")
-    private String id = "0";
+    @JsonProperty("status")
+    private HttpStatus status = HttpStatus.OK;
+    @JsonProperty("message")
+    private String message = "";
 
     public UserResponse(String message) {
         try {
             if (message == null) throw new RuntimeException("Message is null");
             UserResponse response = new ObjectMapper().readValue(message, UserResponse.class);
-            this.id = response.getId();
+            this.status = response.getStatus();
+            this.message = response.getMessage();
         } catch (Exception e) {
             System.err.println("Failed to parse message: " + e.getMessage());
         }

@@ -25,7 +25,7 @@ public class AuthenticationServiceProducer {
 
         pendingRequests.put(request.getId(), futureResponse);
         try {
-            kafkaProducer.sendMessage("signin" ,request.toString());
+//            kafkaProducer.sendMessage("signin" ,request.toString());
             String res = futureResponse.get(10, TimeUnit.SECONDS);
             System.err.println("signin Response: " + res);
             return res;
@@ -41,7 +41,7 @@ public class AuthenticationServiceProducer {
         pendingRequests.put(request.getId(), futureResponse);
 
         try {
-            kafkaProducer.sendMessage("signup", request.toString());
+//            kafkaProducer.sendMessage("signup", request.toString());
             String res = futureResponse.get(10, TimeUnit.SECONDS);
             System.err.println("signUp Response: " + res);
             return res;
@@ -53,6 +53,6 @@ public class AuthenticationServiceProducer {
     }
 
     public void logout(){
-        kafkaProducer.sendMessage("logout", "logout");
+//        kafkaProducer.sendMessage("logout", "logout");
     }
 }

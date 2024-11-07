@@ -19,9 +19,9 @@ public class UserController {
     public ResponseEntity<?> getInfo(@RequestHeader("Authorization") String authorizationHeader) {
         try {
             System.err.println("getInfo request");
-            String response = userService.getInfo(authorizationHeader);
+            ResponseEntity response = userService.getInfo(authorizationHeader);
             System.err.println("getInfo response: " + response);
-            return ResponseEntity.ok(response);
+            return response;
         } catch (JsonProcessingException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error converting to JSON");
         }
