@@ -1,10 +1,8 @@
 package com.example.demo.service.authentication;
 
-import com.example.demo.models.AuthenticationServerResponse;
 import com.example.demo.models.SignInRequest;
 import com.example.demo.models.SignUpRequest;
 import com.example.demo.service.kafka.KafkaProducerService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,16 +20,14 @@ public class AuthenticationServiceProducer {
         this.kafkaProducer = kafkaProducer;
     }
 
-    public String signIn(SignInRequest request) throws JsonProcessingException {
+    public String signIn(SignInRequest request) {
         CompletableFuture<String> futureResponse = new CompletableFuture<>();
-        pendingRequests.put(request.getId(), futureResponse);
-        kafkaProducer.sendMessage("signin" ,request.toString());
 
+        pendingRequests.put(request.getId(), futureResponse);
         try {
+            kafkaProducer.sendMessage("signin" ,request.toString());
             String res = futureResponse.get(10, TimeUnit.SECONDS);
             System.err.println("signin Response: " + res);
-            AuthenticationServerResponse response = new AuthenticationServerResponse(res);
-            if(!response.getStatus()) throw new RuntimeException(response.getStatus().toString());
             return res;
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth service");
@@ -40,13 +36,15 @@ public class AuthenticationServiceProducer {
         }
     }
 
-    public String signUp(SignUpRequest request) throws JsonProcessingException {
+    public String signUp(SignUpRequest request) {
         CompletableFuture<String> futureResponse = new CompletableFuture<>();
         pendingRequests.put(request.getId(), futureResponse);
-        kafkaProducer.sendMessage("signup", request.toString());
 
         try {
-            return futureResponse.get(10, TimeUnit.SECONDS);
+            kafkaProducer.sendMessage("signup", request.toString());
+            String res = futureResponse.get(10, TimeUnit.SECONDS);
+            System.err.println("signUp Response: " + res);
+            return res;
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth service");
         } finally {

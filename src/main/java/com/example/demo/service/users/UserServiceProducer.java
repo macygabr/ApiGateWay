@@ -1,6 +1,5 @@
 package com.example.demo.service.users;
 
-import com.example.demo.models.UserResponse;
 import com.example.demo.service.kafka.KafkaProducerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,18 +25,16 @@ public class UserServiceProducer {
     }
 
 
-    public String getInfo() throws JsonProcessingException {
-        UserRequest userRequest = new UserRequest();
-        CompletableFuture<String> futureResponse = new CompletableFuture<>();
+    public String getInfo(String authorizationHeader) throws JsonProcessingException {
 
+        UserRequest userRequest = new UserRequest(authorizationHeader);
+        CompletableFuture<String> futureResponse = new CompletableFuture<>();
         pendingRequests.put(userRequest.getId(), futureResponse);
-        kafkaProducer.sendMessage("user_info", userRequest.toString());
 
         try {
+            kafkaProducer.sendMessage("user_info", userRequest.toString());
             String message = futureResponse.get(10, TimeUnit.SECONDS);
             System.err.println("user_info Response: " + message);
-            UserResponse response = new UserResponse(message);
-            if(!response.getStatus()) throw new RuntimeException(response.getMessage());
             return message;
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth user");
@@ -48,8 +45,12 @@ public class UserServiceProducer {
 
     @Data
     private static class UserRequest {
-
         private String id = UUID.randomUUID().toString();
+        private String authorizationHeader;
+
+        public UserRequest(String authorizationHeader){
+            this.authorizationHeader = authorizationHeader;
+        }
 
         @Override
         public String toString() {

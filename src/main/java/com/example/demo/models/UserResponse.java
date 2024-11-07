@@ -9,26 +9,16 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class UserResponse {
     @JsonProperty("id")
     private String id = "0";
-    @JsonProperty("status")
-    private Boolean status = false;
-    @JsonProperty("firstname")
-    private String firstname = "";
-    @JsonProperty("lastname")
-    private String lastname = "";
-    @JsonProperty("message")
-    private String message = "";
+
     public UserResponse(String message) {
         try {
             if (message == null) throw new RuntimeException("Message is null");
             UserResponse response = new ObjectMapper().readValue(message, UserResponse.class);
             this.id = response.getId();
-            this.firstname = response.getFirstname();
-            this.lastname = response.getLastname();
         } catch (Exception e) {
             System.err.println("Failed to parse message: " + e.getMessage());
         }

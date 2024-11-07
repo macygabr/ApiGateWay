@@ -19,10 +19,10 @@ public class UserController {
     }
 
     @GetMapping("/getinfo")
-    public ResponseEntity<?> getInfo() {
+    public ResponseEntity<?> getInfo(@RequestHeader("Authorization") String authorizationHeader) {
         try {
             System.err.println("getInfo request ");
-            String response = userService.getInfo();
+            String response = userService.getInfo(authorizationHeader);
             System.err.println("getInfo response: " + response);
             return ResponseEntity.ok(response);
         } catch (JsonProcessingException e) {

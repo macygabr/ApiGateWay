@@ -23,12 +23,10 @@ public class UserServiceConsumer {
         UserResponse response = new UserResponse(message);
         CompletableFuture<String> futureResponse = userService.getPendingRequests().get(response.getId());
 
-        try {
-            futureResponse.complete(response.toString());
-        } catch (Exception e){
+        if (futureResponse != null && response.getId() != null) {
+            futureResponse.complete(message);
+        } else {
             System.err.println("No matching request found for response: " + response);
-        } finally {
-            futureResponse.complete(response.toString());
         }
     }
 }
