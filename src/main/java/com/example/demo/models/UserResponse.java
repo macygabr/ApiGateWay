@@ -7,17 +7,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserResponse {
     @JsonProperty("id")
-    private String id;
+    private String id = "0";
+    @JsonProperty("status")
+    private Boolean status = false;
     @JsonProperty("firstname")
-    private String firstname;
+    private String firstname = "";
     @JsonProperty("lastname")
-    private String lastname;
-
+    private String lastname = "";
+    @JsonProperty("message")
+    private String message = "";
     public UserResponse(String message) {
         try {
             if (message == null) throw new RuntimeException("Message is null");
