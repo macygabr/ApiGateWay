@@ -10,18 +10,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/user/")
 public class UserController {
-
     private final UserServiceProducer userService;
-
     @Autowired
     public UserController(UserServiceProducer userService) {
         this.userService = userService;
     }
-
     @GetMapping("/getinfo")
     public ResponseEntity<?> getInfo(@RequestHeader("Authorization") String authorizationHeader) {
         try {
-            System.err.println("getInfo request ");
+            System.err.println("getInfo request");
             String response = userService.getInfo(authorizationHeader);
             System.err.println("getInfo response: " + response);
             return ResponseEntity.ok(response);

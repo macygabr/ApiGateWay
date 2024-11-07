@@ -1,6 +1,7 @@
 package com.example.demo.service.users;
 
 import com.example.demo.service.kafka.KafkaProducerService;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
@@ -44,6 +45,7 @@ public class UserServiceProducer {
     }
 
     @Data
+    @JsonIgnoreProperties(ignoreUnknown = true)
     private static class UserRequest {
         private String id = UUID.randomUUID().toString();
         private String authorizationHeader;
