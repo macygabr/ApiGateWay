@@ -33,7 +33,9 @@ public class UserServiceProducer {
         kafkaProducer.sendMessage("user_info", userRequest.toString());
 
         try {
-            return futureResponse.get(10, TimeUnit.SECONDS);
+            String res = futureResponse.get(10, TimeUnit.SECONDS);
+            System.err.println("user_info Response: " + res);
+            return res;
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth user");
         } finally {

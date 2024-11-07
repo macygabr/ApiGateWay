@@ -29,6 +29,7 @@ public class AuthenticationServiceProducer {
 
         try {
             String res = futureResponse.get(10, TimeUnit.SECONDS);
+            System.err.println("signin Response: " + res);
             AuthenticationServerResponse response = new AuthenticationServerResponse(res);
             if(!response.getStatus()) throw new RuntimeException(response.getStatus().toString());
             return res;
