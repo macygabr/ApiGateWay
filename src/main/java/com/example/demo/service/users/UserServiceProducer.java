@@ -1,8 +1,7 @@
 package com.example.demo.service.users;
 
 import com.example.demo.models.HttpException;
-import com.example.demo.models.ServerResponse;
-import com.example.demo.models.UserData;
+import com.example.demo.models.UserInfoResponse;
 import com.example.demo.service.kafka.KafkaProducerService;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -14,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
 import java.util.concurrent.*;
 
 
@@ -38,13 +36,13 @@ public class UserServiceProducer {
             kafkaProducer.sendMessage("user_info", id, userRequest.toString());
             String responseMessage = pendingRequests.get(id).get(10, TimeUnit.SECONDS);
             System.err.println("user_info Response: " + responseMessage);
-            UserData response = new UserData(responseMessage);
+            UserInfoResponse response = new UserInfoResponse(responseMessage);
 
             if(response.getStatus() != HttpStatus.OK) {
                 throw new HttpException(response.getStatus(), response.getMessage());
             }
 
-            return ResponseEntity.status(response.getStatus()).body(response.toString());
+            return ResponseEntity.status(response.getStatus()).body(response.toJson());
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth user", e);
         } finally {

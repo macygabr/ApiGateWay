@@ -35,7 +35,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signUp(@RequestBody SignUpRequest request) throws JsonProcessingException {
+    public ResponseEntity<?> signUp(@RequestBody SignUpRequest request) {
         System.err.println("signUp request: " + request);
         String response = authenticationService.signUp(request);
         System.err.println("signUp response: " + response);

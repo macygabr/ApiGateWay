@@ -36,7 +36,7 @@ public class AuthenticationServiceProducer {
             if(response.getStatus() != HttpStatus.OK) {
                 throw new HttpException(response.getStatus(), response.getMessage());
             }
-            return ResponseEntity.status(response.getStatus()).body(response.toString());
+            return ResponseEntity.status(response.getStatus()).body(response.toJson());
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR,"Timeout waiting for response from auth service");
         } finally {
