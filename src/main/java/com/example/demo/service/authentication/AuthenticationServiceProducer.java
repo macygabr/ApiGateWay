@@ -31,9 +31,9 @@ public class AuthenticationServiceProducer {
         pendingRequests.put(id, futureResponse);
         try {
             kafkaProducer.sendMessage("signin" ,id ,request.toString());
-            String res = futureResponse.get(10, TimeUnit.SECONDS);
-            System.err.println("signin Response: " + res);
-            UserData response = new UserData(res);
+            String responseMessage = futureResponse.get(10, TimeUnit.SECONDS);
+            System.err.println("signin Response: " + responseMessage);
+            UserData response = new UserData(responseMessage);
             return ResponseEntity.status(response.getStatus()).body(response.toString());
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth service");
