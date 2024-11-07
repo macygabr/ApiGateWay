@@ -30,8 +30,8 @@ public class AuthenticationServiceProducer {
         try {
             kafkaProducer.sendMessage("signin" ,id ,request.toString());
             String responseMessage = pendingRequests.get(id).get(10, TimeUnit.SECONDS);
-            System.err.println("signin Response: " + responseMessage);
             SignInResponse response = new SignInResponse(responseMessage);
+            System.err.println("signin Response: " + response);
 
             if(response.getStatus() != HttpStatus.OK) {
                 throw new HttpException(response.getStatus(), response.getMessage());

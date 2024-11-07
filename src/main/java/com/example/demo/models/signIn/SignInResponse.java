@@ -4,6 +4,7 @@ import com.example.demo.models.HttpException;
 import com.example.demo.models.UserData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,6 +35,15 @@ public class SignInResponse {
             this.tokenName = response.getTokenName();
         } catch (Exception e) {
             throw new HttpException(HttpStatus.BAD_REQUEST,"Failed to parse message: "+ e);
+        }
+    }
+
+    @Override
+    public String toString() {
+        try {
+            return (new ObjectMapper()).writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
         }
     }
 }
