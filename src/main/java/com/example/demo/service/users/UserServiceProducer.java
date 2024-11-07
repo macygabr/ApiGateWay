@@ -28,21 +28,44 @@ public class UserServiceProducer {
     }
 
     public ResponseEntity<String> getInfo(String authorizationHeader) throws JsonProcessingException {
-
+        UserRequest userRequest = new UserRequest(authorizationHeader);
         String id = UUID.randomUUID().toString();
         CompletableFuture<String> futureResponse = new CompletableFuture<>();
         pendingRequests.put(id, futureResponse);
 
         try {
-            kafkaProducer.sendMessage("user_info", id, authorizationHeader);
+            System.err.println("user_info Request: " + userRequest);
+            kafkaProducer.sendMessage("user_info", id, userRequest.toString());
+
             String responseMessage = futureResponse.get(10, TimeUnit.SECONDS);
             System.err.println("user_info Response: " + responseMessage);
             ServerResponse response = new ServerResponse(responseMessage);
-            return ResponseEntity.status(response.getStatus()).body(response.getMessage());
+            return ResponseEntity.status(response.getStatus()).body(response.toString());
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth user", e);
         } finally {
             pendingRequests.remove(id);
+        }
+    }
+
+
+    @Data
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    private static class UserRequest {
+
+        private String authorizationHeader;
+
+        public UserRequest(String authorizationHeader){
+            this.authorizationHeader = authorizationHeader;
+        }
+
+        @Override
+        public String toString() {
+            try {
+                return new ObjectMapper().writeValueAsString(this);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException("Failed to convert to JSON string", e);
+            }
         }
     }
 }
