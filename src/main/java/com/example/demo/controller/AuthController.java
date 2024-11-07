@@ -1,14 +1,16 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.models.SignInRequest;
+import com.example.demo.models.signIn.SignInRequest;
 import com.example.demo.models.SignUpRequest;
 import com.example.demo.service.authentication.AuthenticationServiceProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -21,9 +23,13 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<?> signIn(@RequestBody SignInRequest request) throws JsonProcessingException {
+    public ResponseEntity<?> signIn(@RequestBody SignInRequest request) {
         System.err.println("signIn request: " + request);
-        ResponseEntity<String> response = authenticationService.signIn(request);
+
+        String id = UUID.randomUUID().toString();
+        authenticationService.getPendingRequests().put(id, new CompletableFuture<>());
+
+        ResponseEntity<String> response = authenticationService.signIn(id, request);
         System.err.println("signIn response: " + response);
         return response;
     }

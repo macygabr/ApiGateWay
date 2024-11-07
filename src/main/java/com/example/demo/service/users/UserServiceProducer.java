@@ -28,17 +28,13 @@ public class UserServiceProducer {
         this.kafkaProducer = kafkaProducer;
     }
 
-    public ResponseEntity<String> getInfo(String authorizationHeader) throws JsonProcessingException {
+    public ResponseEntity<String> getInfo(String id, String authorizationHeader) throws JsonProcessingException {
         UserRequest userRequest = new UserRequest(authorizationHeader);
-        String id = UUID.randomUUID().toString();
-        CompletableFuture<String> futureResponse = new CompletableFuture<>();
-        pendingRequests.put(id, futureResponse);
 
         try {
             System.err.println("user_info Request: " + userRequest);
             kafkaProducer.sendMessage("user_info", id, userRequest.toString());
-
-            String responseMessage = futureResponse.get(10, TimeUnit.SECONDS);
+            String responseMessage = pendingRequests.get(id).get(10, TimeUnit.SECONDS);
             System.err.println("user_info Response: " + responseMessage);
             UserData response = new UserData(responseMessage);
             return ResponseEntity.status(response.getStatus()).body(response.toString());

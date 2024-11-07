@@ -13,9 +13,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SignUpRequest {
-
-    @JsonProperty("id")
-    private String id = UUID.randomUUID().toString();
     @JsonProperty("email")
     private String email;
     @JsonProperty("password")
