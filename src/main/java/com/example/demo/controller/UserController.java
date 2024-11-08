@@ -34,14 +34,4 @@ public class UserController {
             throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, "Error converting to JSON");
         }
     }
-
-    @GetMapping("/logout")
-    public ResponseEntity<?> logout(@RequestHeader("Authorization") String authorizationHeader) {
-        System.err.println("logout");
-        String id = UUID.randomUUID().toString();
-        userService.getPendingRequests().put(id, new CompletableFuture<>());
-        ResponseEntity<String> response = userService.logout(id,authorizationHeader);
-        System.err.println("logout response: " + response);
-        return response;
-    }
 }

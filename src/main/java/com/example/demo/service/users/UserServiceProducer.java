@@ -51,24 +51,6 @@ public class UserServiceProducer {
         }
     }
 
-    public ResponseEntity<String> logout(String id, String token){
-        try {
-            kafkaProducer.sendMessage("logout", id, token);
-            String responseMessage = pendingRequests.get(id).get(10, TimeUnit.SECONDS);
-            SignInResponse response = new SignInResponse(responseMessage);
-
-            if(response.getStatus() != HttpStatus.OK) {
-                throw new HttpException(response.getStatus(), response.getMessage());
-            }
-            return ResponseEntity.status(response.getStatus()).body(response.toJson());
-
-        } catch (TimeoutException | InterruptedException | ExecutionException e) {
-            throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR,"Timeout waiting for response from auth service");
-        } finally {
-            pendingRequests.remove(id);
-        }
-    }
-
 
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
