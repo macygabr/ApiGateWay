@@ -41,11 +41,11 @@ public class AuthController {
     }
 
     @GetMapping("/logout")
-    public ResponseEntity<?> logout() {
+    public ResponseEntity<?> logout(@RequestHeader("Authorization") String authorizationHeader) {
         System.err.println("logout");
         String id = UUID.randomUUID().toString();
         authenticationService.getPendingRequests().put(id, new CompletableFuture<>());
-        ResponseEntity<String> response = authenticationService.logout(id);
+        ResponseEntity<String> response = authenticationService.logout(id,authorizationHeader);
         System.err.println("logout response: " + response);
         return response;
     }
