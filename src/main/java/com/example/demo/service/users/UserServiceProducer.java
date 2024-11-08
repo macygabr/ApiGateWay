@@ -2,6 +2,7 @@ package com.example.demo.service.users;
 
 import com.example.demo.models.HttpException;
 import com.example.demo.models.UserInfoResponse;
+import com.example.demo.models.signIn.SignInResponse;
 import com.example.demo.service.kafka.KafkaProducerService;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -45,6 +46,24 @@ public class UserServiceProducer {
             return ResponseEntity.status(response.getStatus()).body(response.toJson());
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth user", e);
+        } finally {
+            pendingRequests.remove(id);
+        }
+    }
+
+    public ResponseEntity<String> logout(String id, String token){
+        try {
+            kafkaProducer.sendMessage("logout", id, token);
+            String responseMessage = pendingRequests.get(id).get(10, TimeUnit.SECONDS);
+            SignInResponse response = new SignInResponse(responseMessage);
+
+            if(response.getStatus() != HttpStatus.OK) {
+                throw new HttpException(response.getStatus(), response.getMessage());
+            }
+            return ResponseEntity.status(response.getStatus()).body(response.toJson());
+
+        } catch (TimeoutException | InterruptedException | ExecutionException e) {
+            throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR,"Timeout waiting for response from auth service");
         } finally {
             pendingRequests.remove(id);
         }
