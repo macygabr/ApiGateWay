@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.models.HttpException;
 import com.example.demo.service.users.UserServiceProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class UserController {
             System.err.println("getInfo response: " + response);
             return response;
         } catch (JsonProcessingException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error converting to JSON");
+            throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, "Error converting to JSON");
         }
     }
 }
