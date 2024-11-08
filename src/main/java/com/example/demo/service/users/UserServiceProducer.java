@@ -56,7 +56,6 @@ public class UserServiceProducer {
     private static class UserRequest {
 
         private String authorizationHeader;
-
         public UserRequest(String authorizationHeader){
             this.authorizationHeader = authorizationHeader;
         }

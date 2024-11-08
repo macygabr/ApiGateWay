@@ -25,10 +25,8 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<?> signIn(@RequestBody SignInRequest request) {
         System.err.println("signIn request: " + request);
-
         String id = UUID.randomUUID().toString();
         authenticationService.getPendingRequests().put(id, new CompletableFuture<>());
-
         ResponseEntity<String> response = authenticationService.signIn(id, request);
         System.err.println("signIn response: " + response);
         return response;
@@ -45,8 +43,11 @@ public class AuthController {
     @GetMapping("/logout")
     public ResponseEntity<?> logout() {
         System.err.println("logout");
-        authenticationService.logout();
-        return ResponseEntity.ok("send...");
+        String id = UUID.randomUUID().toString();
+        authenticationService.getPendingRequests().put(id, new CompletableFuture<>());
+        ResponseEntity<String> response = authenticationService.logout(id);
+        System.err.println("logout response: " + response);
+        return response;
     }
 }
 
