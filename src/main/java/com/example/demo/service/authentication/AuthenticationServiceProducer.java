@@ -61,9 +61,9 @@ public class AuthenticationServiceProducer {
         }
     }
 
-    public ResponseEntity<String> logout(String id){
+    public ResponseEntity<String> logout(String id, String token){
         try {
-            kafkaProducer.sendMessage("logout", id,"logout");
+            kafkaProducer.sendMessage("logout", id, token);
             String responseMessage = pendingRequests.get(id).get(10, TimeUnit.SECONDS);
             SignInResponse response = new SignInResponse(responseMessage);
 
