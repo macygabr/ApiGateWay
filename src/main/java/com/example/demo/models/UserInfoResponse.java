@@ -16,19 +16,12 @@ public class UserInfoResponse implements Response {
     @JsonProperty("message")
     private String message;
 
-    @JsonProperty("firstname")
-    private String firstname = "";
-    @JsonProperty("lastname")
-    private String lastname = "";
-
     public UserInfoResponse(String message) {
         try {
             if (message == null) throw new RuntimeException("Message is null");
             UserInfoResponse response = new ObjectMapper().readValue(message, UserInfoResponse.class);
             this.status = response.getStatus();
             this.message = response.getMessage();
-            this.firstname = response.getFirstname();
-            this.lastname = response.getLastname();
         } catch (Exception e) {
             System.err.println("Failed to parse message: " + e.getMessage());
         }

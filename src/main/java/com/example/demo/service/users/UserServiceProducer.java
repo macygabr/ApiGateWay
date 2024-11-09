@@ -43,7 +43,7 @@ public class UserServiceProducer {
                 throw new HttpException(response.getStatus(), response.getMessage());
             }
 
-            return ResponseEntity.status(response.getStatus()).body(response.toJson());
+            return ResponseEntity.status(response.getStatus()).body(responseMessage);
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
             throw new RuntimeException("Timeout waiting for response from auth user", e);
         } finally {
