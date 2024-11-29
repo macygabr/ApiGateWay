@@ -75,7 +75,7 @@ public class HHController {
         String id = UUID.randomUUID().toString();
         hhServiceProducer.getPendingRequests().put(id, new CompletableFuture<>());
 
-        ResponseEntity<String> response = hhServiceProducer.stop(id, authorizationHeader);
+        ResponseEntity<String> response = hhServiceProducer.status(id, authorizationHeader);
         System.err.println("hh status: " + response);
         return response;
     }
