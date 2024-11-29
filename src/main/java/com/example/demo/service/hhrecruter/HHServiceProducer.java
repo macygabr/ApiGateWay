@@ -24,22 +24,27 @@ import java.util.concurrent.*;
 
         public ResponseEntity<String> registry(String id, String authorizationHeader) {
             FilterAuthorizationRequest filterAuthorizationRequest = new FilterAuthorizationRequest(authorizationHeader);
-            return sendRequest("hh_registry", id, filterAuthorizationRequest);
+            return sendRequest("registry", id, filterAuthorizationRequest);
         }
 
         public ResponseEntity<String> callback(String id, String authorizationHeader) {
             FilterAuthorizationRequest filterAuthorizationRequest = new FilterAuthorizationRequest(authorizationHeader);
-            return sendRequest("hh_callback", id, filterAuthorizationRequest);
+            return sendRequest("callback", id, filterAuthorizationRequest);
         }
 
         public ResponseEntity<String> start(String id, String authorizationHeader) {
             FilterAuthorizationRequest filterAuthorizationRequest = new FilterAuthorizationRequest(authorizationHeader);
-            return sendRequest("hh_start", id, filterAuthorizationRequest);
+            return sendRequest("start", id, filterAuthorizationRequest);
         }
 
         public ResponseEntity<String> stop(String id, String authorizationHeader) {
             FilterAuthorizationRequest filterAuthorizationRequest = new FilterAuthorizationRequest(authorizationHeader);
-            return sendRequest("hh_stop", id, filterAuthorizationRequest);
+            return sendRequest("stop", id, filterAuthorizationRequest);
+        }
+
+        public ResponseEntity<String> status(String id, String authorizationHeader) {
+            FilterAuthorizationRequest filterAuthorizationRequest = new FilterAuthorizationRequest(authorizationHeader);
+            return sendRequest("status", id, filterAuthorizationRequest);
         }
 
         private ResponseEntity<String> sendRequest(String topic,String id, FilterAuthorizationRequest filterAuthorizationRequest){

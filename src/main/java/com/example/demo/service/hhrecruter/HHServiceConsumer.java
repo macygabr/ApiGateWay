@@ -13,7 +13,7 @@ public class HHServiceConsumer {
     public HHServiceConsumer(HHServiceProducer hhServiceProducer) {
         this.hhServiceProducer = hhServiceProducer;
     }
-    @KafkaListener(topics = "hh_response", groupId = "hh_service")
+    @KafkaListener(topics = "response", groupId = "hh_service")
     public void consumeMessage(ConsumerRecord<String, String> message) {
 
         CompletableFuture<String> futureResponse = hhServiceProducer.getPendingRequests().get(message.key());
