@@ -2,7 +2,6 @@ package com.example.demo.models.signIn;
 
 import com.example.demo.models.HttpException;
 import com.example.demo.models.Response;
-import com.example.demo.models.InfoResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,7 +13,7 @@ import org.springframework.http.HttpStatus;
 @Data
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SignInResponse implements Response {
+public class SignInResponse extends Response {
     @JsonProperty("status")
     private HttpStatus status;
     @JsonProperty("message")

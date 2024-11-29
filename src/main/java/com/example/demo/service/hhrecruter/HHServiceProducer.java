@@ -1,7 +1,7 @@
 package com.example.demo.service.hhrecruter;
 
 import com.example.demo.models.HttpException;
-import com.example.demo.models.InfoResponse;
+import com.example.demo.models.Response;
 import com.example.demo.models.FilterAuthorizationRequest;
 import com.example.demo.service.kafka.KafkaProducerService;
 import lombok.Getter;
@@ -42,18 +42,14 @@ import java.util.concurrent.*;
             return sendRequest("hh_stop", id, filterAuthorizationRequest);
         }
 
-
         private ResponseEntity<String> sendRequest(String topic,String id, FilterAuthorizationRequest filterAuthorizationRequest){
             try {
-                System.err.println(topic+ " Request: " + filterAuthorizationRequest);
+                System.err.println(topic+ " response: " + filterAuthorizationRequest);
                 kafkaProducer.sendMessage(topic, id, filterAuthorizationRequest.toString());
                 String responseMessage = pendingRequests.get(id).get(10, TimeUnit.SECONDS);
-                System.err.println("registry Response: " + responseMessage);
-                InfoResponse response = new InfoResponse(responseMessage);
-                if(response.getStatus() != HttpStatus.OK) {
-                    throw new HttpException(response.getStatus(), response.getMessage());
-                }
-                return ResponseEntity.status(response.getStatus()).body(responseMessage);
+                System.err.println(topic+ " response: " + responseMessage);
+                Response response = new Response(responseMessage);
+                return ResponseEntity.status(response.getStatus()).body(response.getMessage());
             } catch (TimeoutException | InterruptedException | ExecutionException e) {
                 throw new HttpException(HttpStatus.BAD_REQUEST, "Timeout waiting for response from auth user: " + e.getMessage());
             } finally {

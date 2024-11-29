@@ -1,7 +1,7 @@
 package com.example.demo.service.users;
 
 import com.example.demo.models.HttpException;
-import com.example.demo.models.InfoResponse;
+import com.example.demo.models.Response;
 import com.example.demo.models.FilterAuthorizationRequest;
 import com.example.demo.service.kafka.KafkaProducerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -34,7 +34,7 @@ public class UserServiceProducer {
             kafkaProducer.sendMessage("user_info", id, filterAuthorizationRequest.toString());
             String responseMessage = pendingRequests.get(id).get(10, TimeUnit.SECONDS);
             System.err.println("user_info Response: " + responseMessage);
-            InfoResponse response = new InfoResponse(responseMessage);
+            Response response = new Response(responseMessage);
 
             if(response.getStatus() != HttpStatus.OK) {
                 throw new HttpException(response.getStatus(), response.getMessage());
