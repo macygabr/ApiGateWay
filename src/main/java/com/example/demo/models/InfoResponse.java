@@ -10,16 +10,16 @@ import org.springframework.http.HttpStatus;
 @Data
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserInfoResponse implements Response {
+public class InfoResponse implements Response {
     @JsonProperty("status")
     private HttpStatus status;
     @JsonProperty("message")
     private String message;
 
-    public UserInfoResponse(String message) {
+    public InfoResponse(String message) {
         try {
             if (message == null) throw new RuntimeException("Message is null");
-            UserInfoResponse response = new ObjectMapper().readValue(message, UserInfoResponse.class);
+            InfoResponse response = new ObjectMapper().readValue(message, InfoResponse.class);
             this.status = response.getStatus();
             this.message = response.getMessage();
         } catch (Exception e) {

@@ -2,7 +2,7 @@ package com.example.demo.models.signIn;
 
 import com.example.demo.models.HttpException;
 import com.example.demo.models.Response;
-import com.example.demo.models.UserInfoResponse;
+import com.example.demo.models.InfoResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
