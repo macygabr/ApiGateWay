@@ -5,6 +5,8 @@ import com.example.demo.models.signIn.SignInRequest;
 import com.example.demo.models.SignUpRequest;
 import com.example.demo.service.authentication.AuthenticationServiceProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,7 @@ import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/api/auth/")
+@Tag(name = "Authentication API", description = "API для аутентификации и управления сессиями")
 public class AuthController {
     private final AuthenticationServiceProducer authenticationService;
 
@@ -22,6 +25,7 @@ public class AuthController {
         this.authenticationService = authenticationService;
     }
 
+    @Operation(summary = "Авторизация", description = "Вход пользователя с предоставлением учетных данных")
     @PostMapping("/signin")
     public ResponseEntity<?> signIn(@RequestBody SignInRequest request) {
         System.err.println("signIn request: " + request);
@@ -32,6 +36,7 @@ public class AuthController {
         return response;
     }
 
+    @Operation(summary = "Регистрация", description = "Регистрация нового пользователя")
     @PostMapping("/signup")
     public ResponseEntity<?> signUp(@RequestBody SignUpRequest request) {
         System.err.println("signUp request: " + request);
@@ -40,6 +45,7 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
+    @Operation(summary = "Выход", description = "Выход пользователя из системы")
     @GetMapping("/logout")
     public ResponseEntity<?> logout(@RequestHeader("Authorization") String authorizationHeader) {
         System.err.println("logout");

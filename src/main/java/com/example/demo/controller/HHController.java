@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.hhrecruter.HHServiceProducer;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/api/hh/")
+@Tag(name = "HH API", description = "API для работы с HH сервисами")
 public class HHController {
     private final HHServiceProducer hhServiceProducer;
 
@@ -20,6 +23,8 @@ public class HHController {
     public HHController(HHServiceProducer hhServiceProducer) {
         this.hhServiceProducer = hhServiceProducer;
     }
+
+    @Operation(summary = "Регистрация", description = "Регистрация пользователя через HH API")
     @GetMapping("/registry")
     public ResponseEntity<?> registry(@RequestHeader("Authorization") String authorizationHeader) {
         System.err.println("registry");
@@ -32,6 +37,7 @@ public class HHController {
         return response;
     }
 
+    @Operation(summary = "Callback", description = "Обработка callback запроса от HH API")
     @GetMapping("/callback")
     public ResponseEntity<?> callback(@RequestHeader("Authorization") String authorizationHeader) {
         System.err.println("callback");
@@ -44,6 +50,7 @@ public class HHController {
         return response;
     }
 
+    @Operation(summary = "Старт", description = "Запуск процесса в HH API")
     @GetMapping("/start")
     public ResponseEntity<?> start(@RequestHeader("Authorization") String authorizationHeader) {
         System.err.println("start");
@@ -56,6 +63,7 @@ public class HHController {
         return response;
     }
 
+    @Operation(summary = "Остановка", description = "Остановка процесса в HH API")
     @GetMapping("/stop")
     public ResponseEntity<?> stop(@RequestHeader("Authorization") String authorizationHeader) {
         System.err.println("stop");
@@ -68,6 +76,7 @@ public class HHController {
         return response;
     }
 
+    @Operation(summary = "Статус", description = "Получение статуса процесса в HH API")
     @GetMapping("/status")
     public ResponseEntity<?> status(@RequestHeader("Authorization") String authorizationHeader) {
         System.err.println("status");
