@@ -27,8 +27,9 @@ import java.util.concurrent.*;
             return sendRequest("registry", id, filterAuthorizationRequest);
         }
 
-        public ResponseEntity<String> callback(String id, String authorizationHeader) {
+        public ResponseEntity<String> callback(String id, String authorizationHeader, String code) {
             FilterAuthorizationRequest filterAuthorizationRequest = new FilterAuthorizationRequest(authorizationHeader);
+            filterAuthorizationRequest.code = code;
             return sendRequest("callback", id, filterAuthorizationRequest);
         }
 

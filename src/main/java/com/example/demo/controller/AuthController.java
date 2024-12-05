@@ -6,8 +6,6 @@ import com.example.demo.models.SignUpRequest;
 import com.example.demo.service.authentication.AuthenticationServiceProducer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -47,18 +45,7 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
-    @Operation(
-            summary = "Выйти из системы",
-            description = "Выполняет выход пользователя по токену авторизации",
-            parameters = {
-                    @Parameter(
-                            name = "Authorization",
-                            description = "Токен авторизации в формате 'Bearer <token>'",
-                            required = true,
-                            in = ParameterIn.HEADER
-                    )
-            }
-    )
+    @Operation(summary = "Выход", description = "Выход пользователя из системы")
     @GetMapping("/logout")
     public ResponseEntity<?> logout(@RequestHeader("Authorization") String authorizationHeader) {
         System.err.println("logout");

@@ -2,13 +2,13 @@ package com.example.demo.controller;
 
 import com.example.demo.service.hhrecruter.HHServiceProducer;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.headers.Header;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
@@ -39,13 +39,15 @@ public class HHController {
 
     @Operation(summary = "Callback", description = "Обработка callback запроса от HH API")
     @GetMapping("/callback")
-    public ResponseEntity<?> callback(@RequestHeader("Authorization") String authorizationHeader) {
-        System.err.println("callback");
+    public ResponseEntity<?> callback(
+            @RequestHeader("Authorization") String authorizationHeader,
+            @RequestParam("code") String code) {
 
+        System.err.println("callback");
         String id = UUID.randomUUID().toString();
         hhServiceProducer.getPendingRequests().put(id, new CompletableFuture<>());
 
-        ResponseEntity<String> response = hhServiceProducer.callback(id, authorizationHeader);
+        ResponseEntity<String> response = hhServiceProducer.callback(id, authorizationHeader, code);
         System.err.println("hh callback: " + response);
         return response;
     }
@@ -75,6 +77,7 @@ public class HHController {
         System.err.println("hh stop: " + response);
         return response;
     }
+
 
     @Operation(summary = "Статус", description = "Получение статуса процесса в HH API")
     @GetMapping("/status")

@@ -14,6 +14,8 @@ public class FilterAuthorizationRequest {
         this.authorizationHeader = authorizationHeader;
     }
 
+    public String code = null;
+
     @Override
     public String toString() {
         try {
