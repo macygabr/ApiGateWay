@@ -1,60 +1,33 @@
 package com.example.demo.controller;
 
 
-import com.example.demo.models.signIn.SignInRequest;
-import com.example.demo.models.SignUpRequest;
-import com.example.demo.service.authentication.AuthenticationServiceProducer;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.example.demo.models.response.JwtAuthenticationResponse;
+import com.example.demo.models.request.SignInRequest;
+import com.example.demo.models.request.SignUpRequest;
+import com.example.demo.service.AuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
-
 @RestController
-@RequestMapping("/api/auth/")
-@Tag(name = "Authentication API", description = "API для аутентификации и управления сессиями")
+@RequestMapping("/auth")
+@RequiredArgsConstructor
+@Tag(name = "Аутентификация")
 public class AuthController {
-    private final AuthenticationServiceProducer authenticationService;
+    private final AuthenticationService authenticationService;
 
-    @Autowired
-    public AuthController(AuthenticationServiceProducer authenticationService) {
-        this.authenticationService = authenticationService;
+    @Operation(summary = "Регистрация пользователя")
+    @PostMapping("/sign-up")
+    public JwtAuthenticationResponse signUp(@RequestBody @Valid SignUpRequest request) {
+        return authenticationService.signUp(request);
     }
 
-    @Operation(summary = "Авторизация", description = "Вход пользователя с предоставлением учетных данных")
-    @PostMapping("/signin")
-    public ResponseEntity<?> signIn(@RequestBody SignInRequest request) {
-        System.err.println("signIn request: " + request);
-        String id = UUID.randomUUID().toString();
-        authenticationService.getPendingRequests().put(id, new CompletableFuture<>());
-        ResponseEntity<String> response = authenticationService.signIn(id, request);
-        System.err.println("signIn response: " + response);
-        return response;
-    }
-
-    @Operation(summary = "Регистрация", description = "Регистрация нового пользователя")
-    @PostMapping("/signup")
-    public ResponseEntity<?> signUp(@RequestBody SignUpRequest request) {
-        System.err.println("signUp request: " + request);
-        String response = authenticationService.signUp(request);
-        System.err.println("signUp response: " + response);
-        return ResponseEntity.ok(response);
-    }
-
-    @Operation(summary = "Выход", description = "Выход пользователя из системы")
-    @GetMapping("/logout")
-    public ResponseEntity<?> logout(@RequestHeader("Authorization") String authorizationHeader) {
-        System.err.println("logout");
-        String id = UUID.randomUUID().toString();
-        authenticationService.getPendingRequests().put(id, new CompletableFuture<>());
-        ResponseEntity<String> response = authenticationService.logout(id,authorizationHeader);
-        System.err.println("logout response: " + response);
-        return response;
+    @Operation(summary = "Авторизация пользователя")
+    @PostMapping("/sign-in")
+    public JwtAuthenticationResponse signIn(@RequestBody @Valid SignInRequest request) {
+        return authenticationService.signIn(request);
     }
 }
-
 
