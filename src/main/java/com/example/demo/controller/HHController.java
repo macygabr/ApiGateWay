@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.models.Filter;
+import com.example.demo.models.filter.Filter;
 import com.example.demo.service.HHService;
+import com.example.demo.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -17,64 +18,44 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "HH сервис")
 public class HHController {
     private final HHService hhService;
+    private final UserService userService;
 
-    @Operation(summary = "Получение ссылки для регистрации")
+    @Operation(summary = "Получение ссылки для регистрации в HH API")
     @GetMapping("/get-link")
     public ResponseEntity<?> getLink() {
         String response = hhService.getLink();
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @Operation(summary = "Регистрация")
+    @Operation(summary = "Регистрация пользователя в HH API")
     @PatchMapping("/registry")
     public ResponseEntity<?> registry(@RequestParam("code") String code) {
-        String response = hhService.registry();
+        Long userId = userService.getCurrentUser().getId();
+        String response = hhService.registry(userId, code);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
 
-    @Operation(summary = "Старт", description = "Запуск процесса в HH API")
+    @Operation(summary = "Старт процесса", description = "Запуск процесса в HH API")
     @PostMapping("/start")
-    public ResponseEntity<?> start(@RequestBody @Validated Filter filter) {
-        String response = hhService.start(filter);
+    public ResponseEntity<?> start() {
+        Long userId = userService.getCurrentUser().getId();
+        String response = hhService.start(userId);
         System.err.println("hh start: " + response);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @Operation(summary = "Остановка", description = "Остановка процесса в HH API")
+    @Operation(summary = "Остановка процесса", description = "Остановка процесса в HH API")
     @GetMapping("/stop")
     public ResponseEntity<?> stop() {
         String response = hhService.stop();
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
-//
-//
-//    @Operation(
-//            summary = "Статус",
-//            description = "Получение статуса процесса в HH API",
-//            parameters = {
-//                    @Parameter(
-//                            name = "Authorization",
-//                            description = "Токен авторизации",
-//                            required = true,
-//                            in = ParameterIn.HEADER,
-//                            schema = @Schema(type = "string", example = "Bearer exampleToken")
-//                    )
-//            },
-//            responses = {
-//                    @ApiResponse(responseCode = "200", description = "Статус успешно получен"),
-//                    @ApiResponse(responseCode = "401", description = "Неавторизован")
-//            }
-//    )
-//    @GetMapping("/status")
-//    public ResponseEntity<?> status(@RequestHeader("Authorization") String authorizationHeader) {
-//        System.err.println("status");
-//
-//        String id = UUID.randomUUID().toString();
-//        hhServiceProducer.getPendingRequests().put(id, new CompletableFuture<>());
-//
-//        ResponseEntity<String> response = hhServiceProducer.status(id, authorizationHeader);
-//        System.err.println("hh status: " + response);
-//        return response;
-//    }
+
+    @Operation(summary = "Установка фильтра", description = "Установка фильтра в HH API")
+    @GetMapping("/filter")
+    public ResponseEntity<?> setFilter(@RequestBody @Validated Filter filter) {
+        String response = hhService.filter(filter);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
 }

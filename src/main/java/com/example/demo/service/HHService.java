@@ -1,7 +1,11 @@
 package com.example.demo.service;
 
-import com.example.demo.models.Filter;
-import com.example.demo.service.kafka.KafkaProducerService;
+import com.example.demo.models.filter.Filter;
+import com.example.demo.models.exception.CustomTimeoutException;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -13,44 +17,53 @@ import java.util.concurrent.*;
 @Service
 @RequiredArgsConstructor
 public class HHService {
-    private CompletableFuture<String> task;
-    private final KafkaProducerService kafkaProducer;
+    private final KafkaService kafkaService;
+
+    public String profile(Long userId) {
+        HhRegistry data = new HhRegistry(userId, "");
+        return kafkaService.sendRequest("profile", data.toString());
+    }
 
     public String getLink() {
-        return sendRequest("getLink", "");
+        return kafkaService.sendRequest("getLink", "");
     }
 
-    public String registry() {
-        return sendRequest("registry", "");
+    public String registry(Long userId, String code) {
+        HhRegistry data = new HhRegistry(userId, code);
+        return kafkaService.sendRequest("registry", data.toString());
     }
 
-    public String start(Filter filter) {
-        return sendRequest("start", filter.toString());
+    public String start(Long userId) {
+        HhRegistry data = new HhRegistry(userId, "");
+        return kafkaService.sendRequest("start", data.toString());
     }
 
     public String stop() {
-        return sendRequest("stop", "");
+        return kafkaService.sendRequest("stop", "");
     }
 
-    private String sendRequest(String topic, String message){
-        try {
-            String id = String.valueOf(UUID.randomUUID());
-            kafkaProducer.sendMessage(topic, id, message);
-            task = new CompletableFuture<>();
-            return task.get(10, TimeUnit.SECONDS);
-        } catch (TimeoutException | InterruptedException | ExecutionException e) {
-            throw new RuntimeException("Timeout waiting for response from auth user: " + e.getMessage());
-        } finally {
-            task = null;
+    public String filter(Filter filter) {
+        return kafkaService.sendRequest("filter", filter.toString());
+    }
+
+    @AllArgsConstructor
+    private static class HhRegistry {
+        private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
+        @JsonProperty
+        private Long userId;
+
+        @JsonProperty
+        private String code;
+
+        @Override
+        public String toString() {
+            try {
+                return OBJECT_MAPPER.writeValueAsString(this);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
-    @KafkaListener(topics = "response", groupId = "hh_service")
-    private void consumeMessage(ConsumerRecord<String, String> message) {
-        if (task != null) {
-            task.complete(message.value());
-        } else {
-            System.err.println("No active request found for response: " + message.key());
-        }
-    }
 }

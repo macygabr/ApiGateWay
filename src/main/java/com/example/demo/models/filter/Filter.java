@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.example.demo.models.filter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

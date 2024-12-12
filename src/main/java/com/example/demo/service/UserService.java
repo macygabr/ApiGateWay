@@ -1,18 +1,19 @@
 package com.example.demo.service;
 
+import com.example.demo.models.exception.NotFoundException;
 import com.example.demo.models.user.User;
 import com.example.demo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository repository;
-
     /**
      * Сохранение пользователя
      *
@@ -48,7 +49,7 @@ public class UserService {
      */
     public User getByUsername(String username) {
         return repository.findByEmail(username)
-                .orElseThrow(() -> new RuntimeException("Пользователь с именем " + username + " не найден"));
+                .orElseThrow(() -> new NotFoundException("Пользователь с именем " + username + " не найден"));
     }
 
     /**
@@ -77,9 +78,6 @@ public class UserService {
      *
      */
     public void deleteUser(String username) {
-        repository.delete(
-                repository.findByEmail(username)
-                        .orElseThrow(() -> new RuntimeException("Пользователь с именем " + username + " не найден"))
-        );
+        repository.delete(getByUsername(username));
     }
 }
