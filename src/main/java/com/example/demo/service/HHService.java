@@ -19,27 +19,25 @@ import java.util.concurrent.*;
 public class HHService {
     private final KafkaService kafkaService;
 
-    public String profile(Long userId) {
-        HhRegistry data = new HhRegistry(userId, "");
-        return kafkaService.sendRequest("profile", data.toString());
+    public String profile() {
+        return kafkaService.sendRequest("profile");
     }
 
     public String getLink() {
-        return kafkaService.sendRequest("getLink", "");
+        return kafkaService.sendRequest("getLink");
     }
 
-    public String registry(Long userId, String code) {
-        HhRegistry data = new HhRegistry(userId, code);
+    public String registry(String code) {
+        HhRegistry data = new HhRegistry(code);
         return kafkaService.sendRequest("registry", data.toString());
     }
 
-    public String start(Long userId) {
-        HhRegistry data = new HhRegistry(userId, "");
-        return kafkaService.sendRequest("start", data.toString());
+    public String start() {
+        return kafkaService.sendRequest("start");
     }
 
     public String stop() {
-        return kafkaService.sendRequest("stop", "");
+        return kafkaService.sendRequest("stop");
     }
 
     public String filter(Filter filter) {
@@ -49,9 +47,6 @@ public class HHService {
     @AllArgsConstructor
     private static class HhRegistry {
         private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-
-        @JsonProperty
-        private Long userId;
 
         @JsonProperty
         private String code;

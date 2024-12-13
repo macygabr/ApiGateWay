@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "HH сервис")
 public class HHController {
     private final HHService hhService;
-    private final UserService userService;
 
     @Operation(summary = "Получение ссылки для регистрации в HH API")
     @GetMapping("/get-link")
@@ -30,8 +29,7 @@ public class HHController {
     @Operation(summary = "Регистрация пользователя в HH API")
     @PatchMapping("/registry")
     public ResponseEntity<?> registry(@RequestParam("code") String code) {
-        Long userId = userService.getCurrentUser().getId();
-        String response = hhService.registry(userId, code);
+        String response = hhService.registry(code);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
@@ -39,9 +37,7 @@ public class HHController {
     @Operation(summary = "Старт процесса", description = "Запуск процесса в HH API")
     @PostMapping("/start")
     public ResponseEntity<?> start() {
-        Long userId = userService.getCurrentUser().getId();
-        String response = hhService.start(userId);
-        System.err.println("hh start: " + response);
+        String response = hhService.start();
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
@@ -53,8 +49,9 @@ public class HHController {
     }
 
     @Operation(summary = "Установка фильтра", description = "Установка фильтра в HH API")
-    @GetMapping("/filter")
+    @PostMapping("/filter")
     public ResponseEntity<?> setFilter(@RequestBody @Validated Filter filter) {
+        System.out.println(filter);
         String response = hhService.filter(filter);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }

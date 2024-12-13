@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class Filter {
     private String text;
-    private Experience experienceLevel;
-    private int area;
+    private Experience experience;
+    private Integer area;
 
     @Override
     public String toString() {

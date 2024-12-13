@@ -15,14 +15,11 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Профиль", description = "API для управления профилем пользователя")
 public class UserController {
     private final HHService hhService;
-    private final UserService userService;
 
     @Operation(summary = "Получение информации о пользователе")
     @GetMapping("/profile")
     public ResponseEntity<?> getUser() {
-        Long userId = userService.getCurrentUser().getId();
-        System.err.println("userId: " + userId);
-        String response = hhService.profile(userId);
+        String response = hhService.profile();
         return ResponseEntity.ok(response);
     }
 }
