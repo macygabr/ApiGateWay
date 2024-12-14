@@ -51,7 +51,6 @@ public class HHController {
     @Operation(summary = "Установка фильтра", description = "Установка фильтра в HH API")
     @PostMapping("/filter")
     public ResponseEntity<?> setFilter(@RequestBody @Validated Filter filter) {
-        System.out.println(filter);
         String response = hhService.filter(filter);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }

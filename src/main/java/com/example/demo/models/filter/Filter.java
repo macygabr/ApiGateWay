@@ -9,6 +9,7 @@ public class Filter {
     private String text;
     private Experience experience;
     private Integer area;
+    private Schedule schedule;
 
     @Override
     public String toString() {

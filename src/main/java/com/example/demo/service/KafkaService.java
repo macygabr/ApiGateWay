@@ -1,11 +1,13 @@
 package com.example.demo.service;
 
 import com.example.demo.models.exception.CustomTimeoutException;
+import com.example.demo.models.user.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -24,6 +26,7 @@ public class KafkaService {
     private final ConcurrentHashMap<String, CompletableFuture<String>> tasks = new ConcurrentHashMap<>();
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final UserService userService;
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
     String sendRequest(String topic, String message){
         String id = String.valueOf(UUID.randomUUID());
@@ -36,8 +39,15 @@ public class KafkaService {
                 jsonNode = objectMapper.readTree(message);
             }
 
+            User user;
+            try {
+                user = userService.getCurrentUser();
+            } catch (Exception e) {
+                user= new User();
+            }
+
             if (jsonNode.isObject()) {
-                ((ObjectNode) jsonNode).put("userId", userService.getCurrentUser().getId());
+                ((ObjectNode) jsonNode).put("userId", user.getId());
                 message = jsonNode.toString();
             }
 
