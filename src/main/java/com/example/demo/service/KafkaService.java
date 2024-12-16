@@ -70,7 +70,7 @@ public class KafkaService {
     }
 
 
-    @KafkaListener(topics = "response", groupId = "hh_service")
+    @KafkaListener(topics = "response", groupId = "api_service")
     private void consumeMessage(ConsumerRecord<String, String> message) {
         String id = message.key();
         String response = message.value();

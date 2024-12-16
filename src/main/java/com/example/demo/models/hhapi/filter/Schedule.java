@@ -1,4 +1,4 @@
-package com.example.demo.models.filter;
+package com.example.demo.models.hhapi.filter;
 
 
 public enum Schedule {

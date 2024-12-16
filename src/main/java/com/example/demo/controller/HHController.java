@@ -1,8 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.models.filter.Filter;
+import com.example.demo.models.hhapi.filter.Filter;
 import com.example.demo.service.HHService;
-import com.example.demo.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

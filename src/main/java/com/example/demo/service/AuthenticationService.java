@@ -31,7 +31,6 @@ public class AuthenticationService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.ROLE_USER)
-                .monitoring(false)
                 .build();
 
         userService.create(user);

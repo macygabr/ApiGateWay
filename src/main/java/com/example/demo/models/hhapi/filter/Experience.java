@@ -1,4 +1,4 @@
-package com.example.demo.models.filter;
+package com.example.demo.models.hhapi.filter;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
