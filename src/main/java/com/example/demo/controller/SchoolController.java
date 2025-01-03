@@ -24,6 +24,7 @@ public class SchoolController {
                                         @RequestParam(required = false, defaultValue = "25") int size,
                                         @RequestParam(defaultValue = "46e7d965-21e9-4936-bea9-f5ea0d1fddf2") String campusId,
                                         @RequestBody @Validated FilterS21 filter) {
+
         String response = schoolService.peers(page, size, campusId, filter);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
