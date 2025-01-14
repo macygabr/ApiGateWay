@@ -1,0 +1,293 @@
+2025-01-02 18:15:12 INFO  c.example.demo.ApiGateWayApplication - Starting ApiGateWayApplication using Java 17.0.13 with PID 28409 (/Users/macygabr/Projects/ApiGateWay/target/classes started by macygabr in /Users/macygabr/Projects/ApiGateWay)
+2025-01-02 18:15:12 DEBUG c.example.demo.ApiGateWayApplication - Running with Spring Boot v3.1.0, Spring v6.0.9
+2025-01-02 18:15:12 INFO  c.example.demo.ApiGateWayApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-02 18:15:13 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-02 18:15:13 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 1 JPA repository interfaces.
+2025-01-02 18:15:13 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-02 18:15:13 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-02 18:15:13 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-02 18:15:13 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+2025-01-02 18:15:13 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-02 18:15:13 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1331 ms
+2025-01-02 18:15:13 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-02 18:15:13 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+2025-01-02 18:15:13 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-02 18:15:14 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-02 18:15:14 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-02 18:15:14 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-02 18:15:16 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5f20b6fe
+2025-01-02 18:15:16 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-02 18:15:16 INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@2382b2f
+2025-01-02 18:15:17 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-02 18:15:17 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-02 18:15:18 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-02 18:15:18 DEBUG c.e.d.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-01-02 18:15:18 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-02 18:15:19 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-02 18:15:19 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@409df37d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ab1c7a9, org.springframework.security.web.context.SecurityContextHolderFilter@3b22bcad, org.springframework.security.web.header.HeaderWriterFilter@e594c46, org.springframework.web.filter.CorsFilter@6e818345, org.springframework.security.web.authentication.logout.LogoutFilter@78b29e00, com.example.demo.config.JwtAuthenticationFilter@22349ad3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@57330423, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5eaa4ed0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d9c69f8, org.springframework.security.web.session.SessionManagementFilter@3f9ee527, org.springframework.security.web.access.ExceptionTranslationFilter@5dd5422f, org.springframework.security.web.access.intercept.AuthorizationFilter@5257123d]
+2025-01-02 18:15:19 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-02 18:15:19 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-01-02 18:15:19 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [37.194.168.90:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-api_service-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = api_service
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-01-02 18:15:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.0
+2025-01-02 18:15:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2e1947d240607d53
+2025-01-02 18:15:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1735816519592
+2025-01-02 18:15:19 INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-api_service-1, groupId=api_service] Subscribed to topic(s): response
+2025-01-02 18:15:19 INFO  c.example.demo.ApiGateWayApplication - Started ApiGateWayApplication in 7.533 seconds (process running for 8.07)
+2025-01-02 18:15:19 INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [37.194.168.90:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2025-01-02 18:15:19 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2025-01-02 18:15:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.0
+2025-01-02 18:15:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2e1947d240607d53
+2025-01-02 18:15:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1735816519682
+2025-01-02 18:15:20 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting the last seen epoch of partition response-0 to 0 since the associated topicId changed from null to qosCGtzOQC2deWwXhHSLtw
+2025-01-02 18:15:20 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-02 18:15:20 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: rs0KtrdkQsGY2gwAHle7dQ
+2025-01-02 18:15:20 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-api_service-1, groupId=api_service] Cluster ID: rs0KtrdkQsGY2gwAHle7dQ
+2025-01-02 18:15:20 INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 5030 with epoch 0
+2025-01-02 18:15:20 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Discovered group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-02 18:15:20 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-02 18:15:20 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: need to re-join with the given member-id: consumer-api_service-1-11d75ac8-5de4-493a-b70a-368dd13ad9ec
+2025-01-02 18:15:20 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-01-02 18:15:20 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-02 18:15:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully joined group with generation Generation{generationId=74, memberId='consumer-api_service-1-11d75ac8-5de4-493a-b70a-368dd13ad9ec', protocol='range'}
+2025-01-02 18:15:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully synced group in generation Generation{generationId=74, memberId='consumer-api_service-1-11d75ac8-5de4-493a-b70a-368dd13ad9ec', protocol='range'}
+2025-01-02 18:15:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Notifying assignor about the new Assignment(partitions=[response-0])
+2025-01-02 18:15:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Adding newly assigned partitions: response-0
+2025-01-02 18:15:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Setting offset for partition response-0 to the committed offset FetchPosition{offset=2653, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[37.194.168.90:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-02 18:15:23 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions assigned: [response-0]
+2025-01-02 18:15:30 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:15:38 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-02 18:15:38 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-02 18:15:38 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-01-02 18:15:39 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 210 ms
+2025-01-02 18:15:43 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"filter":"{\"status\":true}","size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-02 18:15:44 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition peers-0 to 0 since the associated topicId changed from null to 4KFTppFNQIqDvF62kFtcnA
+2025-01-02 18:16:29 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: group is already rebalancing
+2025-01-02 18:16:29 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Revoke previously assigned partitions response-0
+2025-01-02 18:16:29 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions revoked: [response-0]
+2025-01-02 18:16:29 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-02 18:16:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:16:29 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully joined group with generation Generation{generationId=75, memberId='consumer-api_service-1-11d75ac8-5de4-493a-b70a-368dd13ad9ec', protocol='range'}
+2025-01-02 18:16:29 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Finished assignment for group at generation 75: {consumer-api_service-1-11d75ac8-5de4-493a-b70a-368dd13ad9ec=Assignment(partitions=[response-0])}
+2025-01-02 18:16:29 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully synced group in generation Generation{generationId=75, memberId='consumer-api_service-1-11d75ac8-5de4-493a-b70a-368dd13ad9ec', protocol='range'}
+2025-01-02 18:16:29 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Notifying assignor about the new Assignment(partitions=[response-0])
+2025-01-02 18:16:29 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Adding newly assigned partitions: response-0
+2025-01-02 18:16:30 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Setting offset for partition response-0 to the committed offset FetchPosition{offset=2654, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[37.194.168.90:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-02 18:16:30 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions assigned: [response-0]
+2025-01-02 18:17:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:18:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:19:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:20:20 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-02 18:20:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:21:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:22:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:23:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:24:20 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Node -1 disconnected.
+2025-01-02 18:24:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:24:49 INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Node -1 disconnected.
+2025-01-02 18:25:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:26:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:27:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:28:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-02 18:28:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Revoke previously assigned partitions response-0
+2025-01-02 18:28:40 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions revoked: [response-0]
+2025-01-02 18:28:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Member consumer-api_service-1-11d75ac8-5de4-493a-b70a-368dd13ad9ec sending LeaveGroup request to coordinator 37.194.168.90:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-01-02 18:28:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-02 18:28:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: consumer pro-actively leaving the group
+2025-01-02 18:28:40 INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-api_service-1, groupId=api_service] Unsubscribed all topics or patterns and assigned partitions
+2025-01-02 18:28:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-02 18:28:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: consumer pro-actively leaving the group
+2025-01-02 18:28:40 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-01-02 18:28:40 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-02 18:28:40 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-01-02 18:28:40 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-api_service-1 unregistered
+2025-01-02 18:28:40 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: Consumer stopped
+2025-01-02 18:28:40 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-01-02 18:28:40 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-01-02 18:28:40 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-02 18:28:40 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-01-02 18:28:40 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+2025-01-02 18:28:40 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-02 18:28:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-02 18:28:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

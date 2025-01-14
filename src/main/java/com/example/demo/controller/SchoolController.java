@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.models.hhapi.filter.Filter;
-import com.example.demo.models.s21.filter.FilterS21;
 import com.example.demo.service.SchoolService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,10 +21,9 @@ public class SchoolController {
     @PostMapping("/peers")
     public ResponseEntity<String> peers(@RequestParam(required = false, defaultValue = "0") int page,
                                         @RequestParam(required = false, defaultValue = "25") int size,
-                                        @RequestParam(defaultValue = "46e7d965-21e9-4936-bea9-f5ea0d1fddf2") String campusId,
-                                        @RequestBody @Validated FilterS21 filter) {
+                                        @RequestParam(defaultValue = "46e7d965-21e9-4936-bea9-f5ea0d1fddf2") String campusId) {
 
-        String response = schoolService.peers(page, size, campusId, filter);
+        String response = schoolService.peers(page, size, campusId);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 

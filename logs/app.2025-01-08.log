@@ -1,0 +1,478 @@
+2025-01-08 13:51:00 INFO  c.example.demo.ApiGateWayApplication - Starting ApiGateWayApplication using Java 17.0.13 with PID 2591 (/home/macygabr/PetProjects/ApiGateWay/target/classes started by macygabr in /home/macygabr/PetProjects/ApiGateWay)
+2025-01-08 13:51:00 DEBUG c.example.demo.ApiGateWayApplication - Running with Spring Boot v3.1.0, Spring v6.0.9
+2025-01-08 13:51:00 INFO  c.example.demo.ApiGateWayApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-08 13:51:02 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-08 13:51:02 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 89 ms. Found 1 JPA repository interfaces.
+2025-01-08 13:51:03 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-08 13:51:03 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-08 13:51:03 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-08 13:51:03 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+2025-01-08 13:51:04 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-08 13:51:04 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3712 ms
+2025-01-08 13:51:04 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-08 13:51:04 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+2025-01-08 13:51:04 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-08 13:51:04 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-08 13:51:05 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-08 13:51:05 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-08 13:51:07 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5fb514c2
+2025-01-08 13:51:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-08 13:51:08 INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@3a988299
+2025-01-08 13:51:09 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-08 13:51:10 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-08 13:51:11 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-08 13:51:11 DEBUG c.e.d.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-01-08 13:51:12 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-08 13:51:12 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-08 13:51:12 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@12922d53, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f28ee19, org.springframework.security.web.context.SecurityContextHolderFilter@29ec5005, org.springframework.security.web.header.HeaderWriterFilter@541c76fd, org.springframework.web.filter.CorsFilter@7c07deff, org.springframework.security.web.authentication.logout.LogoutFilter@4ef7145f, com.example.demo.config.JwtAuthenticationFilter@1013aa94, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52e44f71, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@221961f2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65374526, org.springframework.security.web.session.SessionManagementFilter@1d5ec2ed, org.springframework.security.web.access.ExceptionTranslationFilter@3a72517e, org.springframework.security.web.access.intercept.AuthorizationFilter@1d9016fe]
+2025-01-08 13:51:13 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-08 13:51:13 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-01-08 13:51:13 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [37.194.168.90:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-api_service-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = api_service
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-01-08 13:51:13 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.0
+2025-01-08 13:51:13 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2e1947d240607d53
+2025-01-08 13:51:13 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1736319073890
+2025-01-08 13:51:13 INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-api_service-1, groupId=api_service] Subscribed to topic(s): response
+2025-01-08 13:51:13 INFO  c.example.demo.ApiGateWayApplication - Started ApiGateWayApplication in 15.172 seconds (process running for 16.693)
+2025-01-08 13:51:14 INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [37.194.168.90:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2025-01-08 13:51:14 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2025-01-08 13:51:14 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.0
+2025-01-08 13:51:14 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2e1947d240607d53
+2025-01-08 13:51:14 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1736319074077
+2025-01-08 13:51:14 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-08 13:51:14 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting the last seen epoch of partition response-0 to 0 since the associated topicId changed from null to qosCGtzOQC2deWwXhHSLtw
+2025-01-08 13:51:14 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: rs0KtrdkQsGY2gwAHle7dQ
+2025-01-08 13:51:14 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-api_service-1, groupId=api_service] Cluster ID: rs0KtrdkQsGY2gwAHle7dQ
+2025-01-08 13:51:14 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Discovered group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 13:51:14 INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 5083 with epoch 0
+2025-01-08 13:51:14 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 13:51:14 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: need to re-join with the given member-id: consumer-api_service-1-74064f19-4136-466e-844b-ea6b58e362ad
+2025-01-08 13:51:14 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-01-08 13:51:14 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 13:51:17 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully joined group with generation Generation{generationId=127, memberId='consumer-api_service-1-74064f19-4136-466e-844b-ea6b58e362ad', protocol='range'}
+2025-01-08 13:51:17 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Finished assignment for group at generation 127: {consumer-api_service-1-74064f19-4136-466e-844b-ea6b58e362ad=Assignment(partitions=[response-0])}
+2025-01-08 13:51:17 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully synced group in generation Generation{generationId=127, memberId='consumer-api_service-1-74064f19-4136-466e-844b-ea6b58e362ad', protocol='range'}
+2025-01-08 13:51:17 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Notifying assignor about the new Assignment(partitions=[response-0])
+2025-01-08 13:51:17 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Adding newly assigned partitions: response-0
+2025-01-08 13:51:17 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Setting offset for partition response-0 to the committed offset FetchPosition{offset=2993, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[37.194.168.90:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-08 13:51:17 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions assigned: [response-0]
+2025-01-08 13:51:24 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 13:51:57 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-08 13:51:57 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-08 13:51:57 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-01-08 13:51:58 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 444 ms
+2025-01-08 13:52:03 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-08 13:52:03 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition peers-0 to 0 since the associated topicId changed from null to 4KFTppFNQIqDvF62kFtcnA
+2025-01-08 13:52:07 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-08 13:52:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 13:53:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 13:54:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 13:55:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 13:56:14 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-08 13:56:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 13:57:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 13:58:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 13:59:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:00:14 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Node -1 disconnected.
+2025-01-08 14:00:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:00:44 INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Node -1 disconnected.
+2025-01-08 14:01:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:01:55 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-08 14:02:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:03:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:03:29 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-08 14:04:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:05:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:05:44 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-08 14:05:52 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-08 14:06:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:07:04 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-08 14:07:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:08:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:08:42 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-08 14:08:53 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-08 14:09:05 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":1}
+2025-01-08 14:09:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:09:41 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":1}
+2025-01-08 14:09:50 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":1}
+2025-01-08 14:09:57 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":10}
+2025-01-08 14:10:04 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":100}
+2025-01-08 14:10:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:11:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:11:54 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":1,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":100}
+2025-01-08 14:12:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:13:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:14:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:15:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:16:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:17:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:18:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:19:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:20:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:21:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:22:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:23:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:24:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:25:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:26:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:27:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:28:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:29:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:30:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:31:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:32:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:33:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:34:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:35:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:36:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Requesting disconnect from last known coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 14:38:06 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Client requested disconnect from node 2147483646
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Discovered group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Attempt to heartbeat with Generation{generationId=127, memberId='consumer-api_service-1-74064f19-4136-466e-844b-ea6b58e362ad', protocol='range'} and group instance id Optional.empty failed due to UNKNOWN_MEMBER_ID, resetting generation
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Giving away all assigned partitions as lost since generation/memberID has been reset,indicating that consumer is in old state or no longer part of the group
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Lost previously assigned partitions response-0
+2025-01-08 14:38:06 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions lost: [response-0]
+2025-01-08 14:38:06 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions revoked: [response-0]
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: need to re-join with the given member-id: consumer-api_service-1-aebb53ae-a8a9-41c6-8226-d53dcfbcaf01
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-01-08 14:38:06 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 14:38:09 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully joined group with generation Generation{generationId=129, memberId='consumer-api_service-1-aebb53ae-a8a9-41c6-8226-d53dcfbcaf01', protocol='range'}
+2025-01-08 14:38:09 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Finished assignment for group at generation 129: {consumer-api_service-1-aebb53ae-a8a9-41c6-8226-d53dcfbcaf01=Assignment(partitions=[response-0])}
+2025-01-08 14:38:09 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully synced group in generation Generation{generationId=129, memberId='consumer-api_service-1-aebb53ae-a8a9-41c6-8226-d53dcfbcaf01', protocol='range'}
+2025-01-08 14:38:09 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Notifying assignor about the new Assignment(partitions=[response-0])
+2025-01-08 14:38:09 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Adding newly assigned partitions: response-0
+2025-01-08 14:38:09 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Setting offset for partition response-0 to the committed offset FetchPosition{offset=3007, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[37.194.168.90:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-08 14:38:09 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions assigned: [response-0]
+2025-01-08 14:38:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:39:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:40:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:41:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:42:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:43:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:44:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:45:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:46:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:47:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:47:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Attempt to heartbeat with Generation{generationId=129, memberId='consumer-api_service-1-aebb53ae-a8a9-41c6-8226-d53dcfbcaf01', protocol='range'} and group instance id Optional.empty failed due to UNKNOWN_MEMBER_ID, resetting generation
+2025-01-08 14:47:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+2025-01-08 14:47:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+2025-01-08 14:47:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Giving away all assigned partitions as lost since generation/memberID has been reset,indicating that consumer is in old state or no longer part of the group
+2025-01-08 14:47:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Lost previously assigned partitions response-0
+2025-01-08 14:47:48 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions lost: [response-0]
+2025-01-08 14:47:48 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions revoked: [response-0]
+2025-01-08 14:47:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 14:47:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: need to re-join with the given member-id: consumer-api_service-1-bf393b30-a93b-43ab-b1a1-26e5e7eedc99
+2025-01-08 14:47:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-01-08 14:47:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 14:47:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully joined group with generation Generation{generationId=131, memberId='consumer-api_service-1-bf393b30-a93b-43ab-b1a1-26e5e7eedc99', protocol='range'}
+2025-01-08 14:47:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Finished assignment for group at generation 131: {consumer-api_service-1-bf393b30-a93b-43ab-b1a1-26e5e7eedc99=Assignment(partitions=[response-0])}
+2025-01-08 14:47:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully synced group in generation Generation{generationId=131, memberId='consumer-api_service-1-bf393b30-a93b-43ab-b1a1-26e5e7eedc99', protocol='range'}
+2025-01-08 14:47:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Notifying assignor about the new Assignment(partitions=[response-0])
+2025-01-08 14:47:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Adding newly assigned partitions: response-0
+2025-01-08 14:47:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Setting offset for partition response-0 to the committed offset FetchPosition{offset=3007, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[37.194.168.90:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-08 14:47:51 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions assigned: [response-0]
+2025-01-08 14:49:01 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2025-01-08 14:49:01 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Requesting disconnect from last known coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 14:49:01 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Client requested disconnect from node 2147483646
+2025-01-08 14:49:01 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Discovered group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 14:49:01 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2025-01-08 14:49:01 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Requesting disconnect from last known coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 14:49:01 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Discovered group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 14:49:50 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:50:50 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:51:50 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:52:50 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 14:52:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Attempt to heartbeat with Generation{generationId=131, memberId='consumer-api_service-1-bf393b30-a93b-43ab-b1a1-26e5e7eedc99', protocol='range'} and group instance id Optional.empty failed due to UNKNOWN_MEMBER_ID, resetting generation
+2025-01-08 14:52:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+2025-01-08 14:52:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+2025-01-08 14:52:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Giving away all assigned partitions as lost since generation/memberID has been reset,indicating that consumer is in old state or no longer part of the group
+2025-01-08 14:52:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Lost previously assigned partitions response-0
+2025-01-08 14:52:58 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions lost: [response-0]
+2025-01-08 14:52:58 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions revoked: [response-0]
+2025-01-08 14:52:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 14:52:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: need to re-join with the given member-id: consumer-api_service-1-e38b974e-225b-4e35-a43b-777fd2ebcde0
+2025-01-08 14:52:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-01-08 14:52:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 14:54:08 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully joined group with generation Generation{generationId=133, memberId='consumer-api_service-1-e38b974e-225b-4e35-a43b-777fd2ebcde0', protocol='range'}
+2025-01-08 14:54:08 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Finished assignment for group at generation 133: {consumer-api_service-1-e38b974e-225b-4e35-a43b-777fd2ebcde0=Assignment(partitions=[response-0])}
+2025-01-08 14:54:08 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully synced group in generation Generation{generationId=133, memberId='consumer-api_service-1-e38b974e-225b-4e35-a43b-777fd2ebcde0', protocol='range'}
+2025-01-08 14:54:08 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Notifying assignor about the new Assignment(partitions=[response-0])
+2025-01-08 14:54:08 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Adding newly assigned partitions: response-0
+2025-01-08 14:54:08 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Setting offset for partition response-0 to the committed offset FetchPosition{offset=3007, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[37.194.168.90:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-08 14:54:08 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions assigned: [response-0]
+2025-01-08 14:54:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Attempt to heartbeat with Generation{generationId=133, memberId='consumer-api_service-1-e38b974e-225b-4e35-a43b-777fd2ebcde0', protocol='range'} and group instance id Optional.empty failed due to UNKNOWN_MEMBER_ID, resetting generation
+2025-01-08 14:54:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+2025-01-08 14:54:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+2025-01-08 14:54:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Giving away all assigned partitions as lost since generation/memberID has been reset,indicating that consumer is in old state or no longer part of the group
+2025-01-08 14:54:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Lost previously assigned partitions response-0
+2025-01-08 14:54:11 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions lost: [response-0]
+2025-01-08 14:54:11 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions revoked: [response-0]
+2025-01-08 14:54:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 14:54:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: need to re-join with the given member-id: consumer-api_service-1-065dd50a-433e-4677-870e-9d2d3e824d2c
+2025-01-08 14:54:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-01-08 14:54:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 14:59:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully joined group with generation Generation{generationId=135, memberId='consumer-api_service-1-065dd50a-433e-4677-870e-9d2d3e824d2c', protocol='range'}
+2025-01-08 14:59:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Finished assignment for group at generation 135: {consumer-api_service-1-065dd50a-433e-4677-870e-9d2d3e824d2c=Assignment(partitions=[response-0])}
+2025-01-08 14:59:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully synced group in generation Generation{generationId=135, memberId='consumer-api_service-1-065dd50a-433e-4677-870e-9d2d3e824d2c', protocol='range'}
+2025-01-08 14:59:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Notifying assignor about the new Assignment(partitions=[response-0])
+2025-01-08 14:59:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Adding newly assigned partitions: response-0
+2025-01-08 14:59:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Setting offset for partition response-0 to the committed offset FetchPosition{offset=3007, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[37.194.168.90:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-08 14:59:51 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions assigned: [response-0]
+2025-01-08 15:00:34 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:01:34 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:01:37 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":100}
+2025-01-08 15:01:37 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition peers-0 to 0 since the associated topicId changed from null to 4KFTppFNQIqDvF62kFtcnA
+2025-01-08 15:01:42 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":100}
+2025-01-08 15:01:48 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":100}
+2025-01-08 15:02:34 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:03:34 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:04:34 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:04:54 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-08 15:05:34 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:05:48 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Node 1 disconnected.
+2025-01-08 15:05:48 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Cancelled in-flight FETCH request with correlation id 8200 due to node 1 being disconnected (elapsed time since creation: 34ms, elapsed time since send: 34ms, request timeout: 30000ms)
+2025-01-08 15:05:48 INFO  o.a.k.clients.FetchSessionHandler - [Consumer clientId=consumer-api_service-1, groupId=api_service] Error sending fetch request (sessionId=1953922852, epoch=6832) to node 1:
+org.apache.kafka.common.errors.DisconnectException: null
+2025-01-08 15:05:48 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Node 2147483646 disconnected.
+2025-01-08 15:05:48 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Cancelled in-flight HEARTBEAT request with correlation id 8204 due to node 2147483646 being disconnected (elapsed time since creation: 14ms, elapsed time since send: 14ms, request timeout: 30000ms)
+2025-01-08 15:05:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: null. isDisconnected: true. Rediscovery will be attempted.
+2025-01-08 15:05:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Discovered group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 15:05:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Attempt to heartbeat with Generation{generationId=135, memberId='consumer-api_service-1-065dd50a-433e-4677-870e-9d2d3e824d2c', protocol='range'} and group instance id Optional.empty failed due to UNKNOWN_MEMBER_ID, resetting generation
+2025-01-08 15:05:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+2025-01-08 15:05:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: encountered UNKNOWN_MEMBER_ID from HEARTBEAT response
+2025-01-08 15:05:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Giving away all assigned partitions as lost since generation/memberID has been reset,indicating that consumer is in old state or no longer part of the group
+2025-01-08 15:05:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Lost previously assigned partitions response-0
+2025-01-08 15:05:49 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions lost: [response-0]
+2025-01-08 15:05:49 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions revoked: [response-0]
+2025-01-08 15:05:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 15:05:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: need to re-join with the given member-id: consumer-api_service-1-abe48208-ebf7-4222-b0a2-dddc3fb524d9
+2025-01-08 15:05:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-01-08 15:05:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-08 15:05:52 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully joined group with generation Generation{generationId=137, memberId='consumer-api_service-1-abe48208-ebf7-4222-b0a2-dddc3fb524d9', protocol='range'}
+2025-01-08 15:05:52 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Finished assignment for group at generation 137: {consumer-api_service-1-abe48208-ebf7-4222-b0a2-dddc3fb524d9=Assignment(partitions=[response-0])}
+2025-01-08 15:05:52 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully synced group in generation Generation{generationId=137, memberId='consumer-api_service-1-abe48208-ebf7-4222-b0a2-dddc3fb524d9', protocol='range'}
+2025-01-08 15:05:52 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Notifying assignor about the new Assignment(partitions=[response-0])
+2025-01-08 15:05:52 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Adding newly assigned partitions: response-0
+2025-01-08 15:05:52 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Setting offset for partition response-0 to the committed offset FetchPosition{offset=3010, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[37.194.168.90:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-08 15:05:52 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions assigned: [response-0]
+2025-01-08 15:40:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2025-01-08 15:40:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Requesting disconnect from last known coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 15:40:40 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Client requested disconnect from node 2147483646
+2025-01-08 15:40:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Discovered group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 15:40:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+2025-01-08 15:40:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Requesting disconnect from last known coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 15:40:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Discovered group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-08 15:40:40 INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Node 1 disconnected.
+2025-01-08 15:40:40 INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Cancelled in-flight METADATA request with correlation id 105 due to node 1 being disconnected (elapsed time since creation: 23ms, elapsed time since send: 23ms, request timeout: 30000ms)
+2025-01-08 15:41:20 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:42:20 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:43:20 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:44:20 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:45:20 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:46:20 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-08 15:47:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Revoke previously assigned partitions response-0
+2025-01-08 15:47:11 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions revoked: [response-0]
+2025-01-08 15:47:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Member consumer-api_service-1-abe48208-ebf7-4222-b0a2-dddc3fb524d9 sending LeaveGroup request to coordinator 37.194.168.90:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-01-08 15:47:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-08 15:47:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: consumer pro-actively leaving the group
+2025-01-08 15:47:11 INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-api_service-1, groupId=api_service] Unsubscribed all topics or patterns and assigned partitions
+2025-01-08 15:47:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-08 15:47:11 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: consumer pro-actively leaving the group
+2025-01-08 15:47:11 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-01-08 15:47:11 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-08 15:47:11 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-01-08 15:47:11 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-api_service-1 unregistered
+2025-01-08 15:47:11 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: Consumer stopped
+2025-01-08 15:47:11 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-01-08 15:47:11 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-01-08 15:47:11 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-08 15:47:11 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-01-08 15:47:11 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+2025-01-08 15:47:11 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-08 15:47:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-08 15:47:16 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

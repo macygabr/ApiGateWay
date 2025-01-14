@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.models.s21.filter.FilterS21;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +18,11 @@ public class SchoolService {
     private final Logger logger = LoggerFactory.getLogger(SchoolService.class);
     private final ObjectMapper objectMapper;
 
-    public String peers(int page, int size, String campusId, FilterS21 filter) {
+    public String peers(int page, int size, String campusId) {
         Map<String, Object> jsonMap = new HashMap<>();
         jsonMap.put("page", page);
         jsonMap.put("size", size);
         jsonMap.put("campusId", campusId);
-        jsonMap.put("filter", filter.toString());
 
         try {
             String json = objectMapper.writeValueAsString(jsonMap);

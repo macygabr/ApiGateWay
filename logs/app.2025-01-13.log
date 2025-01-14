@@ -1,0 +1,756 @@
+2025-01-13 19:01:34 INFO  c.example.demo.ApiGateWayApplication - Starting ApiGateWayApplication using Java 17.0.13 with PID 26904 (/home/macygabr/PetProjects/ApiGateWay/target/classes started by macygabr in /home/macygabr/PetProjects/ApiGateWay)
+2025-01-13 19:01:34 DEBUG c.example.demo.ApiGateWayApplication - Running with Spring Boot v3.1.0, Spring v6.0.9
+2025-01-13 19:01:34 INFO  c.example.demo.ApiGateWayApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-13 19:01:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-13 19:01:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 1 JPA repository interfaces.
+2025-01-13 19:01:35 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-13 19:01:35 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-13 19:01:35 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-13 19:01:35 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+2025-01-13 19:01:36 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-13 19:01:36 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1352 ms
+2025-01-13 19:01:36 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-13 19:01:36 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+2025-01-13 19:01:36 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-13 19:01:36 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-13 19:01:36 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-13 19:01:36 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-13 19:01:39 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@26d24d7a
+2025-01-13 19:01:39 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-13 19:01:39 INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@5724c7da
+2025-01-13 19:01:40 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-13 19:01:40 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-13 19:01:42 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-13 19:01:42 DEBUG c.e.d.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-01-13 19:01:42 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-13 19:01:43 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-13 19:01:43 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b9f5dcf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ab7e997, org.springframework.security.web.context.SecurityContextHolderFilter@76fdd5f1, org.springframework.security.web.header.HeaderWriterFilter@36299b83, org.springframework.web.filter.CorsFilter@2552cb80, org.springframework.security.web.authentication.logout.LogoutFilter@f1d5f3, com.example.demo.config.JwtAuthenticationFilter@594965c9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2a4a95c4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d1a763c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b3b5252, org.springframework.security.web.session.SessionManagementFilter@3993cecb, org.springframework.security.web.access.ExceptionTranslationFilter@7271320c, org.springframework.security.web.access.intercept.AuthorizationFilter@7a59780b]
+2025-01-13 19:01:43 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-13 19:01:43 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-01-13 19:01:43 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [37.194.168.90:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-api_service-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = api_service
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-01-13 19:01:43 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.0
+2025-01-13 19:01:43 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2e1947d240607d53
+2025-01-13 19:01:43 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1736769703723
+2025-01-13 19:01:43 INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-api_service-1, groupId=api_service] Subscribed to topic(s): response
+2025-01-13 19:01:43 INFO  c.example.demo.ApiGateWayApplication - Started ApiGateWayApplication in 9.344 seconds (process running for 10.059)
+2025-01-13 19:01:43 INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [37.194.168.90:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2025-01-13 19:01:43 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2025-01-13 19:01:43 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.0
+2025-01-13 19:01:43 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2e1947d240607d53
+2025-01-13 19:01:43 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1736769703805
+2025-01-13 19:01:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting the last seen epoch of partition response-0 to 0 since the associated topicId changed from null to qosCGtzOQC2deWwXhHSLtw
+2025-01-13 19:01:44 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-13 19:01:44 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-api_service-1, groupId=api_service] Cluster ID: rs0KtrdkQsGY2gwAHle7dQ
+2025-01-13 19:01:44 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: rs0KtrdkQsGY2gwAHle7dQ
+2025-01-13 19:01:44 INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 5091 with epoch 0
+2025-01-13 19:01:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Discovered group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-13 19:01:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-13 19:01:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: need to re-join with the given member-id: consumer-api_service-1-0f8a86a7-7248-47f8-a9c2-1432ae7af3ca
+2025-01-13 19:01:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-01-13 19:01:44 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-13 19:01:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully joined group with generation Generation{generationId=139, memberId='consumer-api_service-1-0f8a86a7-7248-47f8-a9c2-1432ae7af3ca', protocol='range'}
+2025-01-13 19:01:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Finished assignment for group at generation 139: {consumer-api_service-1-0f8a86a7-7248-47f8-a9c2-1432ae7af3ca=Assignment(partitions=[response-0])}
+2025-01-13 19:01:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully synced group in generation Generation{generationId=139, memberId='consumer-api_service-1-0f8a86a7-7248-47f8-a9c2-1432ae7af3ca', protocol='range'}
+2025-01-13 19:01:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Notifying assignor about the new Assignment(partitions=[response-0])
+2025-01-13 19:01:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Adding newly assigned partitions: response-0
+2025-01-13 19:01:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Setting offset for partition response-0 to the committed offset FetchPosition{offset=3010, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[37.194.168.90:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-13 19:01:47 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions assigned: [response-0]
+2025-01-13 19:01:54 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:02:52 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:03:04 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-13 19:03:04 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-13 19:03:04 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-01-13 19:03:04 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 246 ms
+2025-01-13 19:03:07 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:03:08 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition peers-0 to 0 since the associated topicId changed from null to 4KFTppFNQIqDvF62kFtcnA
+2025-01-13 19:03:27 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:03:51 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:04:49 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:05:48 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:06:44 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-13 19:06:46 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:07:46 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:08:44 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:09:43 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:10:32 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Node -1 disconnected.
+2025-01-13 19:10:42 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:11:02 INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Node -1 disconnected.
+2025-01-13 19:11:40 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:11:41 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Revoke previously assigned partitions response-0
+2025-01-13 19:11:41 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions revoked: [response-0]
+2025-01-13 19:11:41 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Member consumer-api_service-1-0f8a86a7-7248-47f8-a9c2-1432ae7af3ca sending LeaveGroup request to coordinator 37.194.168.90:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-01-13 19:11:41 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-13 19:11:41 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: consumer pro-actively leaving the group
+2025-01-13 19:11:41 INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-api_service-1, groupId=api_service] Unsubscribed all topics or patterns and assigned partitions
+2025-01-13 19:11:41 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-13 19:11:41 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: consumer pro-actively leaving the group
+2025-01-13 19:11:41 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-01-13 19:11:41 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-13 19:11:41 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-01-13 19:11:41 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-api_service-1 unregistered
+2025-01-13 19:11:41 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: Consumer stopped
+2025-01-13 19:11:41 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-01-13 19:11:41 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-01-13 19:11:41 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-13 19:11:41 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-01-13 19:11:41 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+2025-01-13 19:11:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-13 19:11:41 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-13 19:11:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-01-13 19:12:05 INFO  c.example.demo.ApiGateWayApplication - Starting ApiGateWayApplication using Java 17.0.13 with PID 43011 (/home/macygabr/PetProjects/ApiGateWay/target/classes started by macygabr in /home/macygabr/PetProjects/ApiGateWay)
+2025-01-13 19:12:05 DEBUG c.example.demo.ApiGateWayApplication - Running with Spring Boot v3.1.0, Spring v6.0.9
+2025-01-13 19:12:05 INFO  c.example.demo.ApiGateWayApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-13 19:12:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-13 19:12:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 91 ms. Found 1 JPA repository interfaces.
+2025-01-13 19:12:08 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-01-13 19:12:08 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-01-13 19:12:08 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-13 19:12:08 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+2025-01-13 19:12:08 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-13 19:12:08 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3411 ms
+2025-01-13 19:12:09 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-13 19:12:09 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+2025-01-13 19:12:09 INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2025-01-13 19:12:10 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-13 19:12:10 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-13 19:12:10 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-01-13 19:12:12 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3bdbf8d3
+2025-01-13 19:12:12 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-01-13 19:12:13 INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@74b7497b
+2025-01-13 19:12:14 INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2025-01-13 19:12:15 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-01-13 19:12:16 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-13 19:12:16 DEBUG c.e.d.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-01-13 19:12:17 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-13 19:12:18 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-13 19:12:18 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@39adf4e6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73299197, org.springframework.security.web.context.SecurityContextHolderFilter@6ff05f85, org.springframework.security.web.header.HeaderWriterFilter@6ade4ac6, org.springframework.web.filter.CorsFilter@4ef7145f, org.springframework.security.web.authentication.logout.LogoutFilter@6c7bc8ac, com.example.demo.config.JwtAuthenticationFilter@319ea996, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@71979130, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77a14911, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1611ce1c, org.springframework.security.web.session.SessionManagementFilter@36299b83, org.springframework.security.web.access.ExceptionTranslationFilter@4d6f951a, org.springframework.security.web.access.intercept.AuthorizationFilter@1297cf8]
+2025-01-13 19:12:19 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-01-13 19:12:19 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-01-13 19:12:19 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [37.194.168.90:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-api_service-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = api_service
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-01-13 19:12:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.0
+2025-01-13 19:12:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2e1947d240607d53
+2025-01-13 19:12:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1736770339309
+2025-01-13 19:12:19 INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-api_service-1, groupId=api_service] Subscribed to topic(s): response
+2025-01-13 19:12:19 INFO  c.example.demo.ApiGateWayApplication - Started ApiGateWayApplication in 14.443 seconds (process running for 15.54)
+2025-01-13 19:12:19 INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [37.194.168.90:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2025-01-13 19:12:19 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2025-01-13 19:12:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.0
+2025-01-13 19:12:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 2e1947d240607d53
+2025-01-13 19:12:19 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1736770339441
+2025-01-13 19:12:19 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting the last seen epoch of partition response-0 to 0 since the associated topicId changed from null to qosCGtzOQC2deWwXhHSLtw
+2025-01-13 19:12:19 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-13 19:12:19 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-api_service-1, groupId=api_service] Cluster ID: rs0KtrdkQsGY2gwAHle7dQ
+2025-01-13 19:12:19 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: rs0KtrdkQsGY2gwAHle7dQ
+2025-01-13 19:12:19 INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 5093 with epoch 0
+2025-01-13 19:12:19 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Discovered group coordinator 37.194.168.90:9092 (id: 2147483646 rack: null)
+2025-01-13 19:12:19 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-13 19:12:20 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: need to re-join with the given member-id: consumer-api_service-1-55124f5c-6cb4-4371-95a8-fe56a754fb0c
+2025-01-13 19:12:20 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-01-13 19:12:20 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] (Re-)joining group
+2025-01-13 19:12:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully joined group with generation Generation{generationId=141, memberId='consumer-api_service-1-55124f5c-6cb4-4371-95a8-fe56a754fb0c', protocol='range'}
+2025-01-13 19:12:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Finished assignment for group at generation 141: {consumer-api_service-1-55124f5c-6cb4-4371-95a8-fe56a754fb0c=Assignment(partitions=[response-0])}
+2025-01-13 19:12:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Successfully synced group in generation Generation{generationId=141, memberId='consumer-api_service-1-55124f5c-6cb4-4371-95a8-fe56a754fb0c', protocol='range'}
+2025-01-13 19:12:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Notifying assignor about the new Assignment(partitions=[response-0])
+2025-01-13 19:12:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Adding newly assigned partitions: response-0
+2025-01-13 19:12:23 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Setting offset for partition response-0 to the committed offset FetchPosition{offset=3012, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[37.194.168.90:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-13 19:12:23 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions assigned: [response-0]
+2025-01-13 19:12:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:13:28 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:14:26 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:15:23 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-13 19:15:23 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-13 19:15:23 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-01-13 19:15:23 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:15:24 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition peers-0 to 0 since the associated topicId changed from null to 4KFTppFNQIqDvF62kFtcnA
+2025-01-13 19:15:25 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:16:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:17:19 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-13 19:17:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:18:21 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:19:20 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:20:18 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:21:09 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-api_service-1, groupId=api_service] Node -1 disconnected.
+2025-01-13 19:21:17 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:21:37 INFO  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Node -1 disconnected.
+2025-01-13 19:22:16 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:23:15 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:23:43 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:24:14 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:25:12 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:26:11 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:26:37 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-13 19:27:08 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:27:09 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:27:22 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:28:08 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:28:53 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:28:58 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:29:07 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:30:06 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:30:34 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:30:56 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:31:04 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:32:03 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:32:06 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:32:37 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:33:02 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:34:00 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:34:16 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:34:28 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:34:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:35:58 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:36:09 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:36:56 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:37:55 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:38:40 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:38:54 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:39:52 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:40:51 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:41:41 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 19:41:49 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:42:48 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:43:47 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:44:45 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:45:44 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:46:42 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:47:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:48:39 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:49:38 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:50:37 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:51:36 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:52:34 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:53:33 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:54:31 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:55:30 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:56:28 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:57:27 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:58:26 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 19:59:24 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:00:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:01:21 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:02:20 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:03:18 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:04:17 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:05:16 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:06:14 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:07:13 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:07:25 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:07:26 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition peers-0 to 0 since the associated topicId changed from null to 4KFTppFNQIqDvF62kFtcnA
+2025-01-13 20:07:32 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:08:11 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:08:49 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:09:10 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:10:05 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:10:08 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:10:39 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:11:07 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:11:27 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:11:32 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:11:37 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-13 20:12:01 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:12:06 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:13:04 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:14:03 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:14:53 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:15:02 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:15:05 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:15:15 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:16:00 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:16:57 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:16:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:17:11 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:17:58 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:18:00 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:18:11 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:18:49 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:18:57 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:19:03 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:19:55 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:20:05 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:20:15 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":25,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:20:54 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:21:50 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":1,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:21:52 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:21:59 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":1,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:22:08 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":2,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:22:17 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:22:27 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:22:51 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:23:26 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:23:36 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:23:50 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:24:48 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:25:48 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:26:46 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:27:45 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:28:44 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:29:43 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:30:41 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:31:40 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:32:40 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:33:38 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:34:37 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:35:36 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:36:35 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:36:52 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:36:52 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition peers-0 to 0 since the associated topicId changed from null to 4KFTppFNQIqDvF62kFtcnA
+2025-01-13 20:37:34 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:38:33 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:39:32 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:40:03 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:40:18 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:40:31 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:41:30 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:41:38 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Resetting the last seen epoch of partition ping-0 to 0 since the associated topicId changed from null to gMEwJwZSSTmyq8v3b0Rknw
+2025-01-13 20:42:29 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:42:44 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:42:48 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:43:28 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:43:30 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:43:35 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:44:27 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:45:26 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:46:25 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:46:27 DEBUG c.example.demo.service.SchoolService - Сформированный JSON: {"size":10,"campusId":"46e7d965-21e9-4936-bea9-f5ea0d1fddf2","page":0}
+2025-01-13 20:47:24 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:48:23 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:49:22 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:50:21 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:51:20 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:52:19 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:53:18 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:54:17 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:55:16 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:56:15 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:57:14 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:58:13 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 20:59:12 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:00:12 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:01:11 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:02:10 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:03:09 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:04:08 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:05:07 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:06:07 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:07:06 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:08:05 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:09:05 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:10:04 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:11:03 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:12:02 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:13:01 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:14:00 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:15:00 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:15:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:16:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:17:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:18:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:19:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:20:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:21:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:22:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:23:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:24:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:25:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:26:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:27:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:28:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:29:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:30:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:31:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:32:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:33:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:34:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:35:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:36:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:37:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:38:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:39:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:40:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:41:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:42:59 ERROR c.example.demo.service.PingService - Ошибка при проверке соединения: Время ожидания превышено
+2025-01-13 21:43:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Revoke previously assigned partitions response-0
+2025-01-13 21:43:40 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: partitions revoked: [response-0]
+2025-01-13 21:43:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Member consumer-api_service-1-55124f5c-6cb4-4371-95a8-fe56a754fb0c sending LeaveGroup request to coordinator 37.194.168.90:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-01-13 21:43:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-13 21:43:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: consumer pro-actively leaving the group
+2025-01-13 21:43:40 INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-api_service-1, groupId=api_service] Unsubscribed all topics or patterns and assigned partitions
+2025-01-13 21:43:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-13 21:43:40 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-api_service-1, groupId=api_service] Request joining group due to: consumer pro-actively leaving the group
+2025-01-13 21:43:40 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-01-13 21:43:40 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-13 21:43:40 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-01-13 21:43:40 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-api_service-1 unregistered
+2025-01-13 21:43:40 INFO  o.s.k.l.KafkaMessageListenerContainer - api_service: Consumer stopped
+2025-01-13 21:43:41 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-01-13 21:43:41 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-01-13 21:43:41 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-13 21:43:41 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-01-13 21:43:41 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+2025-01-13 21:43:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-13 21:43:41 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-01-13 21:43:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
