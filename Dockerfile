@@ -1,8 +1,5 @@
 FROM openjdk:17-jdk-slim AS build
 
-MAINTAINER Tigran Simonyan
-LABEL version="1.0" description="Docker image for boomerang/client-side/deposit-service"
-
 RUN apt-get update && apt-get install -y wget unzip
 RUN wget https://services.gradle.org/distributions/gradle-8.13-milestone-3-all.zip -P /tmp \
     && unzip /tmp/gradle-8.13-milestone-3-all.zip -d /opt \
@@ -13,6 +10,5 @@ WORKDIR /app
 
 COPY . .
 RUN gradle build
-EXPOSE 8080
-
-CMD ["java", "-jar", "app/app.jar"]
+EXPOSE 8888
+CMD ["java", "-jar", "./build/libs/ApiGateWay-0.0.1.jar"]
