@@ -1,14 +1,13 @@
-FROM openjdk:17-jdk-slim AS build
-
-RUN apt-get update && apt-get install -y wget unzip
-RUN wget https://services.gradle.org/distributions/gradle-8.13-milestone-3-all.zip -P /tmp \
-    && unzip /tmp/gradle-8.13-milestone-3-all.zip -d /opt \
-    && rm /tmp/gradle-8.13-milestone-3-all.zip
-ENV PATH="/opt/gradle-8.13-milestone-3/bin:${PATH}"
+FROM eclipse-temurin:21-jdk-alpine AS build
+RUN apk add --no-cache maven
 
 WORKDIR /app
 
-COPY . .
-RUN gradle build
-EXPOSE 8888
-CMD ["java", "-jar", "./build/libs/ApiGateWay-0.0.1.jar"]
+COPY pom.xml .
+
+COPY src ./src
+
+RUN mvn clean package
+
+CMD ["java", "-jar", "target/ApiGateWay-0.0.1.jar"]
+
