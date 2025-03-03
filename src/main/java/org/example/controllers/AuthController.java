@@ -6,9 +6,13 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.models.request.SignInRequest;
 import org.example.models.request.SignUpRequest;
+//import org.example.service.AuthenticationService;
 import org.example.service.AuthenticationService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.net.http.HttpResponse;
 
 
 @RestController
@@ -30,4 +34,3 @@ public class AuthController {
         return authenticationService.signIn(request);
     }
 }
-

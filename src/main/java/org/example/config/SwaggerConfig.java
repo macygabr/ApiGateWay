@@ -16,7 +16,7 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("API Gateway")
                         .version("1.0")
-                        .description("Документация API с защитой JWT"))
+                        .description("Документация API"))
                 .addSecurityItem(new SecurityRequirement().addList("BearerAuth"))
                 .components(new io.swagger.v3.oas.models.Components()
                         .addSecuritySchemes("BearerAuth", new SecurityScheme()
