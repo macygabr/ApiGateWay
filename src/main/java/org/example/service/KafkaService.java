@@ -24,17 +24,17 @@ public class KafkaService {
     public String sendRequest(String topic, String message){
         logger.debug("Sending request to topic: {}", topic);
         String id = String.valueOf(UUID.randomUUID());
+        tasks.put(id, new CompletableFuture<>());
         try {
             kafkaTemplate.send(topic, id, message);
             logger.debug("Sent request with id: {}", id);
-            tasks.put(id, new CompletableFuture<>());
             return tasks.get(id).get(10, TimeUnit.SECONDS);
         } catch (TimeoutException e) {
+            tasks.remove(id);
             throw new HttpClientErrorException(HttpStatus.GATEWAY_TIMEOUT, "Timeout");
         } catch (InterruptedException | ExecutionException e) {
-            throw new RuntimeException(e.getMessage());
-        } finally {
             tasks.remove(id);
+            throw new RuntimeException(e.getMessage());
         }
     }
 
@@ -42,12 +42,14 @@ public class KafkaService {
         return sendRequest(topic, null);
     }
 
-//    @KafkaListener(topics = "response", groupId = "api_service")
+    @KafkaListener(topics = "response", groupId = "api_service")
     private void consumeMessage(ConsumerRecord<String, String> message) {
-//        String id = message.key();
-//        String response = message.value();
-//        if (tasks.get(id) != null) {
-//            tasks.get(id).complete(response);
-//        }
+        String id = message.key();
+        String response = message.value();
+        logger.debug("Received response for id: {}", id);
+        tasks.computeIfPresent(id, (key, future) -> {
+            future.complete(response);
+            return null;
+        });
     }
 }

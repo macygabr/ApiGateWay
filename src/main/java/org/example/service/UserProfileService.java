@@ -32,6 +32,6 @@ public class UserProfileService {
 
             return ResponseEntity.ok("hi " + username + " your role is " + roles);
         }
-        return ResponseEntity.ok("hi ");
+        return ResponseEntity.ok("hi anonymous");
     }
 }

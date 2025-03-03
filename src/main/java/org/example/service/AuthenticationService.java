@@ -16,7 +16,6 @@ public class AuthenticationService {
     private final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
 
     public ResponseEntity<String> signIn(SignInRequest signInData) {
-
         return keycloakService.validateUser(signInData);
     }
 
