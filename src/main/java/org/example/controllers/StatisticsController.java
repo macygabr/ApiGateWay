@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.http.HttpResponse;
@@ -20,13 +21,14 @@ import java.net.http.HttpResponse;
 @RequiredArgsConstructor
 @Tag(name = "Статистика", description = "Получение статистики")
 public class StatisticsController {
-    private final KafkaService kafkaService;
     private final StatisticsService statisticsService;
-    private final Logger logger = LoggerFactory.getLogger(StatisticsController.class);
 
     @Operation(summary = "Получение списка пиров")
     @GetMapping("/peers")
-    public ResponseEntity<String> getPeers() {
-        return statisticsService.peers(0,0,"12");
+    public ResponseEntity<String> getPeers(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "0") int size,
+            @RequestParam(defaultValue = "12") String campusId) {
+        return statisticsService.peers(page, size, campusId);
     }
 }

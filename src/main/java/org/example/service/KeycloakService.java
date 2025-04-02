@@ -6,14 +6,14 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.models.request.SignInRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class KeycloakService {
 
@@ -30,7 +30,7 @@ public class KeycloakService {
     private final String realm = "macygabr";
 
     private final HttpClient client = HttpClient.newHttpClient();
-    private final Logger logger = LoggerFactory.getLogger(KeycloakService.class);
+
 
     public ResponseEntity<String> registerUser(String username, String password, String email) {
         try {
@@ -49,7 +49,7 @@ public class KeycloakService {
 
             return ResponseEntity.status(response.statusCode()).body(response.body());
         } catch (IOException | InterruptedException e) {
-            logger.error("Error registering user", e);
+            log.error("Error registering user", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Registration failed");
         }
     }
@@ -62,7 +62,7 @@ public class KeycloakService {
 
             return sendPostRequest(tokenEndpointUrl, requestBody, "application/x-www-form-urlencoded");
         } catch (Exception e) {
-            logger.error("Error during sign-in", e);
+            log.error("Error during sign-in", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Sign-in failed");
         }
     }
@@ -74,7 +74,7 @@ public class KeycloakService {
                 .POST(HttpRequest.BodyPublishers.ofString(requestBody))
                 .build();
 
-        logger.debug("Sending request to: {}", url);
+        log.debug("Sending request to: {}", url);
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 

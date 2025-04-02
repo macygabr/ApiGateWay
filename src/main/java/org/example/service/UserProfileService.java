@@ -1,6 +1,7 @@
 package org.example.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserProfileService {
-    private final Logger logger = LoggerFactory.getLogger(UserProfileService.class);
 
     public ResponseEntity<String> getUserProfile(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
