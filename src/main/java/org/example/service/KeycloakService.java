@@ -26,8 +26,11 @@ public class KeycloakService {
     @Value("${keycloak.client-secret}")
     private String clientSecret;
 
-    private final String keycloakUrl = "http://127.0.0.1:2020";
-    private final String realm = "macygabr";
+    @Value("${keycloak.url}")
+    private String keycloakUrl;
+
+    @Value("${keycloak.realm}")
+    private String realm;
 
     private final HttpClient client = HttpClient.newHttpClient();
 

@@ -24,7 +24,7 @@ public class KafkaService {
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ConcurrentHashMap<String, CompletableFuture<String>> tasks = new ConcurrentHashMap<>();
 
-    @Value("${kafka.request.timeout:10}") // Таймаут в секундах
+    @Value("${kafka.request.timeout:10}")
     private long requestTimeout;
 
     public String sendRequest(String topic, String message) {

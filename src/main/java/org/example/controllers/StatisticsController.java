@@ -9,10 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpResponse;
 
@@ -23,12 +20,13 @@ import java.net.http.HttpResponse;
 public class StatisticsController {
     private final StatisticsService statisticsService;
 
+    @CrossOrigin(origins = "https://macygabr.github.io")
     @Operation(summary = "Получение списка пиров")
     @GetMapping("/peers")
     public ResponseEntity<String> getPeers(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "0") int size,
-            @RequestParam(defaultValue = "12") String campusId) {
+            @RequestParam(defaultValue = "25") int size,
+            @RequestParam(defaultValue = "46e7d965-21e9-4936-bea9-f5ea0d1fddf2") String campusId) {
         return statisticsService.peers(page, size, campusId);
     }
 }
