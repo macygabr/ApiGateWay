@@ -20,7 +20,7 @@ import java.net.http.HttpResponse;
 public class StatisticsController {
     private final StatisticsService statisticsService;
 
-    @CrossOrigin(origins = "https://macygabr.github.io")
+    @CrossOrigin(origins = "http://37.194.168.90:3002/")
     @Operation(summary = "Получение списка пиров")
     @GetMapping("/peers")
     public ResponseEntity<String> getPeers(
