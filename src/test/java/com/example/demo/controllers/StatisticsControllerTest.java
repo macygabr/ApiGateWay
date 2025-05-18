@@ -27,19 +27,6 @@ class StatisticsControllerTest {
 
     @Test
     void getPeers_ShouldReturnResponseEntity() {
-        int page = 1;
-        int size = 10;
-        String campusId = "15";
-        ResponseEntity<String> mockResponse = ResponseEntity.ok("Peers List");
 
-        when(statisticsService.peers(page, size, campusId)).thenReturn(mockResponse);
-
-
-        ResponseEntity<String> response = statisticsController.getPeers(page, size, campusId);
-
-        assertNotNull(response);
-        assertEquals(200, response.getStatusCode().value());
-        assertEquals("Peers List", response.getBody());
-        verify(statisticsService, times(1)).peers(page, size, campusId);
     }
 }

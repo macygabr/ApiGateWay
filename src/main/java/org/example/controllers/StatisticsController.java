@@ -22,11 +22,9 @@ public class StatisticsController {
 
     @CrossOrigin(origins = {"https://macygabr.github.io", "http://37.194.168.90:3002/"})
     @Operation(summary = "Получение списка пиров")
-    @GetMapping("/peers")
-    public ResponseEntity<String> getPeers(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "25") int size,
-            @RequestParam(defaultValue = "46e7d965-21e9-4936-bea9-f5ea0d1fddf2") String campusId) {
-        return statisticsService.peers(page, size, campusId);
+    @PostMapping("/peers")
+    public ResponseEntity<String> getPeers(@RequestBody String json) {
+        return statisticsService.peers(json);
     }
+
 }

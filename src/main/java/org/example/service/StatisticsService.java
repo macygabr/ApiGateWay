@@ -20,22 +20,16 @@ public class StatisticsService {
     private final KafkaService kafkaService;
     private static final String topic = "peers";
 
-    public ResponseEntity<String> peers(int page, int size, String campusId) {
+    public ResponseEntity<String> peers(String json) {
         try {
-            System.err.println(campusId);
-            Map<String, Object> jsonMap = new HashMap<>();
-            jsonMap.put("page", page);
-            jsonMap.put("size", size);
-            jsonMap.put("campusId", campusId);
-
-            String json = objectMapper.writeValueAsString(jsonMap);
-            log.debug("Generated JSON: {}", json);
+            log.debug("Received JSON from frontend: {}", json);
             String response = kafkaService.sendRequest(topic, json);
             log.debug("Received response: {}", response);
             return ResponseEntity.ok(response);
-        } catch (JsonProcessingException e) {
-            log.error("Error creating JSON", e);
-            throw new RuntimeException("Error creating JSON", e);
+        } catch (Exception e) {
+            log.error("Error while handling peer request", e);
+            throw new RuntimeException("Error while handling peer request", e);
         }
     }
+
 }
