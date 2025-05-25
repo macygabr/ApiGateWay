@@ -32,4 +32,16 @@ public class StatisticsService {
         }
     }
 
+    public ResponseEntity<String> campuses(String json) {
+        try {
+            log.debug("Received JSON from frontend: {}", json);
+            String response = kafkaService.sendRequest(topic, json);
+            log.debug("Received response: {}", response);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            log.error("Error while handling campus request", e);
+            throw new RuntimeException("Error while handling campus request", e);
+        }
+    }
+
 }
