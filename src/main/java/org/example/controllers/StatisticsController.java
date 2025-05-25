@@ -29,9 +29,9 @@ public class StatisticsController {
 
     @CrossOrigin(origins = {"https://macygabr.github.io", "http://37.194.168.90:3002/"})
     @Operation(summary = "Получение списка кампусов")
-    @PostMapping("/campuses")
-    public ResponseEntity<String> getCampuses(@RequestBody String json) {
-        return statisticsService.campuses(json);
+    @GetMapping("/campuses")
+    public ResponseEntity<String> getCampuses() {
+        return statisticsService.campuses();
     }
 
 }

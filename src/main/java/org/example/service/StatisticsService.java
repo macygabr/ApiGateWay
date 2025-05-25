@@ -1,16 +1,10 @@
 package org.example.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Slf4j
 @Service
@@ -32,10 +26,10 @@ public class StatisticsService {
         }
     }
 
-    public ResponseEntity<String> campuses(String json) {
+    public ResponseEntity<String> campuses() {
         try {
-            log.debug("Received JSON from frontend: {}", json);
-            String response = kafkaService.sendRequest(topic, json);
+            log.debug("Received JSON from frontend: {}");
+            String response = kafkaService.sendRequest("campuses", "");
             log.debug("Received response: {}", response);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
